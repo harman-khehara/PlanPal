@@ -324,13 +324,13 @@ class _HomePageState extends State<HomePage> {
                                           height: 200.0,
                                           child: Center(
                                               child: Text(
-                                                  'Description Description Description Description Description Description Description ',
+                                                  "Want more fluid schedules? Use a custom schedule to generate a timetable that works around time preferences you set.",
                                                   textAlign: TextAlign.center,
                                                   style: TextStyle(
                                                     fontSize: 20,
                                                     color: Colors.redAccent[400],
                                                   ))))))),
-                          //'Lean More' and 'Create Schedule' buttons
+                          //'Learn More' and 'Create Schedule' buttons
                           ButtonBar(
                               alignment: MainAxisAlignment.center,
                               children: <Widget>[
