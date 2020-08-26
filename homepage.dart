@@ -20,10 +20,12 @@ class _HomePageState extends State<HomePage> {
   void _openDrawer() {
     _scaffoldKey.currentState.openDrawer();
   }
+
   //Closes the drawer
   void _closeDrawer() {
     Navigator.of(context).pop();
   }
+
   //Build the homepage
   @override
   Widget build(BuildContext context) {
@@ -46,17 +48,45 @@ class _HomePageState extends State<HomePage> {
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  RaisedButton(
-                    onPressed: _closeDrawer,
-                    child: const Text('Return to Homepage'),
-                  )
-                ])),
+              Container(
+                  padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 16.0),
+                  width: 395.0,
+                  height: 500.0,
+                  child: Material(
+                      color: Colors.lightBlue[100],
+                      elevation: 14.0,
+                      borderRadius: BorderRadius.circular(24.0),
+                      shadowColor: Colors.blueGrey,
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Text(
+                              "This personal care app is designed to manage work/study schedules efficiently using psychologically certified techniques. The app features three modes of auto-generated schedules: Non-custom schedules with two types, Longer Periods and Shorter Periods, and a Custom Schedule. With the exception of the custom schedule, the non-custom schedules cannot be modified once they've been generated. The non-custom schedules have restricted timings for studying activities based on the research behind studying for shorter versus longer periods of time.",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.black,
+                                fontFamily: 'Karla',
+                              ),
+                            ),
+                          ]))),
+              RaisedButton(
+                  onPressed: _closeDrawer,
+                  child: const Text('Return to Homepage',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Acme',
+                        fontSize: 16,
+                      )),
+                  color: Colors.redAccent[400],
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(24.0))))
+            ])),
 
         //All widgets on the homepage of the app in a scrollable list
         body: ListView(
           scrollDirection: Axis.vertical,
           children: <Widget>[
-
             //The button which links to a full description of the app
             Padding(
               padding: const EdgeInsets.fromLTRB(16.0, 25.0, 16.0, 16.0),
@@ -71,30 +101,32 @@ class _HomePageState extends State<HomePage> {
                               onPressed: _openDrawer,
                               child: RichText(
                                 text: TextSpan(
-                                  style: TextStyle(
-                                    fontSize: 18, color: Colors.lightBlue[900]
-                                  ),
-                                  children: [
-                                    TextSpan(text: 'Welcome ',),
-                                    TextSpan(text: 'to Smart Schedule Creator! ',),
-                                    TextSpan(text: 'Click here ',
-                                        style: TextStyle(
-                                           fontWeight: FontWeight.bold,
-                                    )),
-                                    TextSpan(text: 'to learn more about how you can create your very own productive study schedule')
-                                  ]
-                                ),
+                                    style: TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.lightBlue[900]),
+                                    children: [
+                                      TextSpan(
+                                        text: 'Welcome ',
+                                      ),
+                                      TextSpan(
+                                        text: 'to Smart Schedule Creator! ',
+                                      ),
+                                      TextSpan(
+                                          text: 'Click here ',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                          )),
+                                      TextSpan(
+                                          text:
+                                              'to learn more about how you can create your very own productive study schedule.')
+                                    ]),
                                 textAlign: TextAlign.center,
                               ),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(24.0),
                               ),
-                              backgroundColor: Colors.lightBlue[100]
-                          )
-                      )
-                  )),
+                              backgroundColor: Colors.lightBlue[100])))),
             ),
-
 
             //Short schedule' option
             Padding(
@@ -108,7 +140,6 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: BorderRadius.circular(24.0),
                         shadowColor: Colors.blueGrey,
                         child: Column(children: <Widget>[
-
                           //Title box
                           Container(
                               padding: const EdgeInsets.all(10.0),
@@ -144,46 +175,50 @@ class _HomePageState extends State<HomePage> {
                                           height: 200.0,
                                           child: Center(
                                               child: Text(
-                                                  'Description Description Description Description Description Description Description ',
+                                                  'Do you like working for short periods of time? Get more done in less time by using a short study schedule.',
                                                   textAlign: TextAlign.center,
                                                   style: TextStyle(
                                                     fontSize: 20,
-                                                    color: Colors.redAccent[400],
+                                                    color:
+                                                        Colors.redAccent[400],
                                                   ))))))),
                           //'Lean More' and 'Create Schedule' buttons
                           ButtonBar(
-                            alignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              FlatButton(
-                                onPressed: () {
-                                  Navigator.push(context,
-                                  MaterialPageRoute(builder: (context) => LearnMore1()));
-                                },
-                                child: Text('LEARN MORE',
-                                  style: TextStyle(
-                                    color: Colors.lightBlue[900],
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16
-                                )),
-                              ),
-                              RaisedButton(
-                                onPressed: (){
-                                  Navigator.push(context,
-                                      MaterialPageRoute(builder: (context) => CreateSchedule1()));
-                                },
-                                child: Text('Create Short Study Schedule',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontFamily: 'Acme',
-                                  fontSize: 16,
-                                )),
-                                color: Colors.redAccent[400],
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.all(Radius.circular(24.0))
-                              )
-                              )
-                            ]
-                          ),
+                              alignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                FlatButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                LearnMore1()));
+                                  },
+                                  child: Text('LEARN MORE',
+                                      style: TextStyle(
+                                          color: Colors.lightBlue[900],
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 16)),
+                                ),
+                                RaisedButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  CreateSchedule1()));
+                                    },
+                                    child: Text('Create Short Study Schedule',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontFamily: 'Acme',
+                                          fontSize: 16,
+                                        )),
+                                    color: Colors.redAccent[400],
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(24.0))))
+                              ]),
                         ])))),
 
             //Long schedule option
@@ -198,7 +233,6 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: BorderRadius.circular(24.0),
                         shadowColor: Colors.blueGrey,
                         child: Column(children: <Widget>[
-
                           //Title box
                           Container(
                               padding: const EdgeInsets.all(10.0),
@@ -212,8 +246,7 @@ class _HomePageState extends State<HomePage> {
                                           width: 380.0,
                                           height: 50.0,
                                           child: Center(
-                                              child: Text(
-                                                  'Long Study Schedule',
+                                              child: Text('Long Study Schedule',
                                                   textAlign: TextAlign.center,
                                                   style: TextStyle(
                                                     fontSize: 20,
@@ -234,11 +267,12 @@ class _HomePageState extends State<HomePage> {
                                           height: 200.0,
                                           child: Center(
                                               child: Text(
-                                                  'Description Description Description Description Description Description Description ',
+                                                  'Like getting to the bottom of things? Spend more time working on what matters most by using a long study schedule.',
                                                   textAlign: TextAlign.center,
                                                   style: TextStyle(
                                                     fontSize: 20,
-                                                    color: Colors.redAccent[400],
+                                                    color:
+                                                        Colors.redAccent[400],
                                                   ))))))),
                           //'Lean More' and 'Create Schedule' buttons
                           ButtonBar(
@@ -246,20 +280,25 @@ class _HomePageState extends State<HomePage> {
                               children: <Widget>[
                                 FlatButton(
                                   onPressed: () {
-                                    Navigator.push(context,
-                                        MaterialPageRoute(builder: (context) => LearnMore2()));
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                LearnMore2()));
                                   },
                                   child: Text('LEARN MORE',
                                       style: TextStyle(
                                           color: Colors.lightBlue[900],
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 16
-                                      )),
+                                          fontSize: 16)),
                                 ),
                                 RaisedButton(
-                                    onPressed: (){
-                                      Navigator.push(context,
-                                          MaterialPageRoute(builder: (context) => CreateSchedule2()));
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  CreateSchedule2()));
                                     },
                                     child: Text('Create Long Study Schedule',
                                         style: TextStyle(
@@ -269,11 +308,9 @@ class _HomePageState extends State<HomePage> {
                                         )),
                                     color: Colors.redAccent[400],
                                     shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.all(Radius.circular(24.0))
-                                    )
-                                )
-                              ]
-                          ),
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(24.0))))
+                              ]),
                         ])))),
 
             //Custom schedule option
@@ -288,7 +325,6 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: BorderRadius.circular(24.0),
                         shadowColor: Colors.blueGrey,
                         child: Column(children: <Widget>[
-
                           //Title box
                           Container(
                               padding: const EdgeInsets.all(10.0),
@@ -328,7 +364,8 @@ class _HomePageState extends State<HomePage> {
                                                   textAlign: TextAlign.center,
                                                   style: TextStyle(
                                                     fontSize: 20,
-                                                    color: Colors.redAccent[400],
+                                                    color:
+                                                        Colors.redAccent[400],
                                                   ))))))),
                           //'Learn More' and 'Create Schedule' buttons
                           ButtonBar(
@@ -336,20 +373,25 @@ class _HomePageState extends State<HomePage> {
                               children: <Widget>[
                                 FlatButton(
                                   onPressed: () {
-                                    Navigator.push(context,
-                                        MaterialPageRoute(builder: (context) => LearnMore3()));
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                LearnMore3()));
                                   },
                                   child: Text('LEARN MORE',
                                       style: TextStyle(
                                           color: Colors.lightBlue[900],
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 16
-                                      )),
+                                          fontSize: 16)),
                                 ),
                                 RaisedButton(
-                                    onPressed: (){
-                                      Navigator.push(context,
-                                          MaterialPageRoute(builder: (context) => CreateSchedule3()));
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  CreateSchedule3()));
                                     },
                                     child: Text('Create Custom Study Schedule',
                                         style: TextStyle(
@@ -359,11 +401,9 @@ class _HomePageState extends State<HomePage> {
                                         )),
                                     color: Colors.redAccent[400],
                                     shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.all(Radius.circular(24.0))
-                                    )
-                                )
-                              ]
-                          ),
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(24.0))))
+                              ]),
                         ])))),
           ],
         ));
