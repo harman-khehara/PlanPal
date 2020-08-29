@@ -71,8 +71,3 @@ class _CreateSchedule3State extends State<CreateSchedule3> {
     );
   }
 }
-/* children: [
-                Text("Enter when you wake up and when you go to sleep:", style: TextStyle(fontFamily: 'Acme', color: Colors.redAccent[400]),)
-                IconButton(icon: Icon(Icons.brightness_3), onPressed: () => _selectTime(context),),
-                Text(selectedTime.format(context)),
-              ]*/
