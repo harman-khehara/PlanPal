@@ -1,5 +1,5 @@
 //Create short study schedule page
-
+import 'dart:async';
 import 'package:flutter/material.dart';
 
 class CreateSchedule3 extends StatefulWidget {
@@ -8,7 +8,40 @@ class CreateSchedule3 extends StatefulWidget {
 }
 
 class _CreateSchedule3State extends State<CreateSchedule3> {
-  final _formKey = GlobalKey<FormState>();
+  TimeOfDay selectedbedTime =TimeOfDay.now();
+  TimeOfDay selectedwakeTime =TimeOfDay.now();
+
+  //bed time
+  Future<Null> _selectbedTime(BuildContext context) async {
+    final TimeOfDay pickbedTime = await showTimePicker(
+        context: context,
+        initialTime: selectedbedTime, builder: (BuildContext context, Widget child) {
+      return MediaQuery(
+        data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: false),
+        child: child,
+      );});
+
+    if (pickbedTime != null && pickbedTime != selectedbedTime )
+      setState(() {
+        selectedbedTime = pickbedTime;
+      });
+  }
+
+  //wake up time
+  Future<Null> _selectwakeTime(BuildContext context) async {
+    final TimeOfDay pickwakeTime = await showTimePicker(
+        context: context,
+        initialTime: selectedwakeTime, builder: (BuildContext context, Widget child) {
+      return MediaQuery(
+        data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: false),
+        child: child,
+      );});
+
+    if (pickwakeTime != null && pickwakeTime != selectedwakeTime )
+      setState(() {
+        selectedwakeTime = pickwakeTime;
+      });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,21 +50,29 @@ class _CreateSchedule3State extends State<CreateSchedule3> {
             style: TextStyle(fontFamily: 'Acme')),
         backgroundColor: Colors.redAccent[400],
       ),
-      body: Form (
-          key: _formKey,
+      body: Container (
           child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  padding: const EdgeInsets.all(10.0),
-                  alignment: Alignment.topLeft,
+            children: [
+              Text("Enter when you wake up and when you go to sleep:", style: TextStyle(fontFamily: 'Acme', color: Colors.redAccent[400])),
+              Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    IconButton(icon: Icon(Icons.brightness_3), onPressed: () => _selectbedTime(context),),
+                    Text(selectedbedTime.format(context)),
+                    IconButton(icon: Icon(Icons.brightness_high), onPressed: () => _selectwakeTime(context),),
+                    Text(selectedwakeTime.format(context)),
+                  ],
                 ),
-                TextFormField(
-                  decoration: const InputDecoration(hintText: "Enter a task", icon: Icon(Icons.assignment)), 
-                )// Add 2 DropDownField for calendar limit, an interactive calendar for blocking off times
-              ]
+              ),
+            ],
           )
       )
     );
   }
 }
+/* children: [
+                Text("Enter when you wake up and when you go to sleep:", style: TextStyle(fontFamily: 'Acme', color: Colors.redAccent[400]),)
+                IconButton(icon: Icon(Icons.brightness_3), onPressed: () => _selectTime(context),),
+                Text(selectedTime.format(context)),
+              ]*/
