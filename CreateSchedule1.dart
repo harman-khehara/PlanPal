@@ -2,6 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:smart_schedule_creator/TaskRow1.dart';
 
 class CreateSchedule1 extends StatefulWidget {
   @override
@@ -10,9 +11,21 @@ class CreateSchedule1 extends StatefulWidget {
 
 class _CreateSchedule1State extends State<CreateSchedule1> {
   String dropdownValue = 'One';
+  int count = 1;
+  int hoursTotal = 0;
+  bool enabled = true;
 
   @override
   Widget build(BuildContext context) {
+    List<TaskRow> _tasks = new List.generate(count, (int i) => new TaskRow());
+
+    for (var i = 0; i < _tasks.length; i++) {
+      hoursTotal = hoursTotal + int.parse(_tasks[i].time);
+    }
+    if (hoursTotal >= 12) {
+      enabled = false;
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Create a Short Study Schedule",
@@ -22,84 +35,40 @@ class _CreateSchedule1State extends State<CreateSchedule1> {
         backgroundColor: Colors.redAccent[400],
       ),
       floatingActionButton: FloatingActionButton(
+        onPressed: _addNewTask,
         backgroundColor: Colors.redAccent[400],
         child: Icon(Icons.add),
       ),
       body: Center(
-        child: Container(
-            padding: const EdgeInsets.all(16.0),
-            child: Material(
-                color: Colors.lightBlue[100],
+          child: Column(children: [
+        Expanded(
+          child: Container(
+              padding: const EdgeInsets.all(16.0),
+              child: Material(
+                color: Colors.white,
                 elevation: 14.0,
                 borderRadius: BorderRadius.circular(24.0),
                 shadowColor: Colors.blueGrey,
-                child: ListView(scrollDirection: Axis.vertical, children: [
-                  Column(children: [
-                  Row(children: [
-                    Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Container(
-                        width: 240.0,
-                        child: TextFormField(
-                          decoration: const InputDecoration(
-                              //contentPadding: EdgeInsets.symmetric(vertical: 25.0,),
-                              hintText: "Enter a task",
-                              icon: Icon(Icons.assignment)),
-                        ),
-                      ),
-                    ),
-
-                    Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Container(
-                      height: 50.0,
-                      width: 80.0,
-                      decoration: ShapeDecoration(
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(width: 2.0, style: BorderStyle.solid, color: Colors.redAccent[400]),
-                          borderRadius: BorderRadius.all(Radius.circular(16.0)),
-                        ),
-                      ),
-                      child: Center(
-                        child: DropdownButton<String>(
-                      value: dropdownValue,
-                      icon: Icon(Icons.expand_more),
-                      iconSize: 24,
-                      elevation: 16,
-                      style: TextStyle(color: Colors.black),
-                      onChanged: (String newValue) {
-                        setState(() {
-                          dropdownValue = newValue;
-                        });
-                      },
-                      items: <String>['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Eleven', 'Twelve']
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
-                    ),
-                      )
-                    )
-                    )
-                  ]),
-
-                    Center(child:
-                    Divider(
-                      color: Colors.redAccent[400],
-                      height: 20,
-                      thickness: 2,
-                      indent: 0,
-                      endIndent: 0,
-                    ),
-                    )
-
-        ],
-                  ),
-                ]))),
-      ),
+                child: new ListView(
+                  children: _tasks,
+                  scrollDirection: Axis.vertical,
+                ),
+              )),
+        )
+      ])),
     );
+  }
+
+  void _addNewTask() {
+    if (enabled) {
+      setState(() {
+        count = count + 1;
+      });
+    } else {
+      setState(() {
+        null;
+      });
+    }
+    ;
   }
 }
