@@ -3,10 +3,17 @@
 import 'package:flutter/material.dart';
 import 'package:smart_schedule_creator/globals.dart';
 
-String dropdownValue = Globals.dropdownValue;
+List dropdownValue = Globals.dropdownValue;
+List userTasks = Globals.userTasks;
 
 class TaskRow extends StatefulWidget {
-  String get time => dropdownValue;
+  List get time{
+    return dropdownValue;
+  }
+
+  List get task{
+    return userTasks;
+  }
 
   @override
   State<StatefulWidget> createState() => new _TaskRowState();
@@ -15,9 +22,11 @@ class TaskRow extends StatefulWidget {
 class _TaskRowState extends State<TaskRow> {
   var items = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
   List _listValues = ['1'];
+  final myController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+
     return new Column(
       children: [
         Row(children: [
@@ -26,13 +35,15 @@ class _TaskRowState extends State<TaskRow> {
             child: Container(
               width: 240.0,
               child: TextFormField(
+                controller: myController,
                 decoration: const InputDecoration(
-                    //contentPadding: EdgeInsets.symmetric(vertical: 25.0,),
+                  //contentPadding: EdgeInsets.symmetric(vertical: 25.0,),
                     hintText: "Enter a task",
                     icon: Icon(Icons.assignment)),
               ),
             ),
           ),
+
           Padding(
               padding: const EdgeInsets.all(10.0),
               child: Container(
@@ -57,11 +68,14 @@ class _TaskRowState extends State<TaskRow> {
                       style: TextStyle(color: Colors.black),
                       onChanged: (String newValue) {
                         _listValues[0] = newValue;
-                        dropdownValue = newValue;
-                        setState(() {});
+                        dropdownValue.add(int.parse(_listValues[0]));
+                        userTasks.add(myController.text);
+                        setState(() {
+                          //print(dropdownValue);
+                        });
                       },
                       items:
-                          items.map<DropdownMenuItem<String>>((String value) {
+                      items.map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
                           child: Text(value),
