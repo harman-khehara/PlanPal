@@ -1,6 +1,6 @@
 //Create short study schedule page
-import 'dart:async';
 import 'package:flutter/material.dart';
+
 
 class CreateSchedule3 extends StatefulWidget {
   @override
@@ -8,40 +8,10 @@ class CreateSchedule3 extends StatefulWidget {
 }
 
 class _CreateSchedule3State extends State<CreateSchedule3> {
-  TimeOfDay selectedbedTime =TimeOfDay.now();
-  TimeOfDay selectedwakeTime =TimeOfDay.now();
-
-  //bed time
-  Future<Null> _selectbedTime(BuildContext context) async {
-    final TimeOfDay pickbedTime = await showTimePicker(
-        context: context,
-        initialTime: selectedbedTime, builder: (BuildContext context, Widget child) {
-      return MediaQuery(
-        data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: false),
-        child: child,
-      );});
-
-    if (pickbedTime != null && pickbedTime != selectedbedTime )
-      setState(() {
-        selectedbedTime = pickbedTime;
-      });
-  }
-
-  //wake up time
-  Future<Null> _selectwakeTime(BuildContext context) async {
-    final TimeOfDay pickwakeTime = await showTimePicker(
-        context: context,
-        initialTime: selectedwakeTime, builder: (BuildContext context, Widget child) {
-      return MediaQuery(
-        data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: false),
-        child: child,
-      );});
-
-    if (pickwakeTime != null && pickwakeTime != selectedwakeTime )
-      setState(() {
-        selectedwakeTime = pickwakeTime;
-      });
-  }
+  int _valuebed = 1;
+  String timeofDay = 'AM';
+  int _valuewake = 1;
+  String timeofDay2 = 'AM';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,24 +20,157 @@ class _CreateSchedule3State extends State<CreateSchedule3> {
             style: TextStyle(fontFamily: 'Acme')),
         backgroundColor: Colors.redAccent[400],
       ),
-      body: Container (
-          child: Column(
+      body: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Text("Select times for when you sleep and wake up:", style: TextStyle(fontFamily: 'Acme', fontSize: 20, color: Colors.redAccent[400])),
+          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Text("Enter when you wake up and when you go to sleep:", style: TextStyle(fontFamily: 'Acme', color: Colors.redAccent[400])),
-              Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    IconButton(icon: Icon(Icons.brightness_3), onPressed: () => _selectbedTime(context),),
-                    Text(selectedbedTime.format(context)),
-                    IconButton(icon: Icon(Icons.brightness_high), onPressed: () => _selectwakeTime(context),),
-                    Text(selectedwakeTime.format(context)),
+              IconButton(icon: Icon(Icons.brightness_3)), //bedtime
+              DropdownButton(value: _valuebed,
+                items: [
+                  DropdownMenuItem(
+                    child: Text("1"),
+                    value: 1,
+                  ),
+                  DropdownMenuItem(
+                    child: Text("2"),
+                    value: 2,
+                  ),
+                  DropdownMenuItem(
+                      child: Text("3"),
+                      value: 3
+                  ),
+                  DropdownMenuItem(
+                      child: Text("4"),
+                      value: 4
+                  ),
+                  DropdownMenuItem(
+                      child: Text("5"),
+                      value: 5
+                  ),
+                  DropdownMenuItem(
+                      child: Text("6"),
+                      value: 6
+                  ),
+                  DropdownMenuItem(
+                      child: Text("7"),
+                      value: 7
+                  ),
+                  DropdownMenuItem(
+                      child: Text("8"),
+                      value: 8
+                  ),
+                  DropdownMenuItem(
+                      child: Text("9"),
+                      value: 9
+                  ),
+                  DropdownMenuItem(
+                      child: Text("10"),
+                      value: 10
+                  ),
+                  DropdownMenuItem(
+                      child: Text("11"),
+                      value: 11
+                  ),
+                  DropdownMenuItem(
+                      child: Text("12"),
+                      value: 12
+                  )
+                ],
+                onChanged: (value) {
+                setState(() {
+                  _valuebed = value;
+                }); //setState
+                }),
+              DropdownButton(
+                value: timeofDay,
+                onChanged: (String newValue) {
+                  setState(() {
+                    timeofDay = newValue;
+                  });
+                },
+                items: ['AM', 'PM'].map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                }).toList()
+              ),
+              IconButton(icon: Icon(Icons.brightness_high)), //wake time -------------------------------------------
+              DropdownButton(value: _valuewake,
+                  items: [
+                    DropdownMenuItem(
+                      child: Text("1"),
+                      value: 1,
+                    ),
+                    DropdownMenuItem(
+                      child: Text("2"),
+                      value: 2,
+                    ),
+                    DropdownMenuItem(
+                        child: Text("3"),
+                        value: 3
+                    ),
+                    DropdownMenuItem(
+                        child: Text("4"),
+                        value: 4
+                    ),
+                    DropdownMenuItem(
+                        child: Text("5"),
+                        value: 5
+                    ),
+                    DropdownMenuItem(
+                        child: Text("6"),
+                        value: 6
+                    ),
+                    DropdownMenuItem(
+                        child: Text("7"),
+                        value: 7
+                    ),
+                    DropdownMenuItem(
+                        child: Text("8"),
+                        value: 8
+                    ),
+                    DropdownMenuItem(
+                        child: Text("9"),
+                        value: 9
+                    ),
+                    DropdownMenuItem(
+                        child: Text("10"),
+                        value: 10
+                    ),
+                    DropdownMenuItem(
+                        child: Text("11"),
+                        value: 11
+                    ),
+                    DropdownMenuItem(
+                        child: Text("12"),
+                        value: 12
+                    )
                   ],
-                ),
+                  onChanged: (value) {
+                    setState(() {
+                      _valuewake = value;
+                    }); //setState
+                  }),
+              DropdownButton(
+                  value: timeofDay2,
+                  onChanged: (String newValue) {
+                    setState(() {
+                      timeofDay2 = newValue;
+                    });
+                  },
+                  items: ['AM', 'PM'].map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList()
               ),
             ],
           )
-      )
+    ])
     );
   }
 }
+//DateTime.now().add(Duration(hours: 1))
