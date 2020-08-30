@@ -39,7 +39,7 @@ class _LearnMore2State extends State<LearnMore2> {
                       ),
                     ),
                     Text(
-                      "✓ ",
+                      "✓ Complete tasks for the day in multiple 3 hour intervals",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 18,
@@ -48,7 +48,7 @@ class _LearnMore2State extends State<LearnMore2> {
                       ),
                     ),
                     Text(
-                      "✓ ",
+                      "✓ Block off times of the day you are unavailable",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 18,
@@ -57,7 +57,7 @@ class _LearnMore2State extends State<LearnMore2> {
                       ),
                     ),
                     Text(
-                      "✓ ",
+                      "✓ Choose a specific day for which you would like to create a schedule",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 18,
@@ -65,7 +65,7 @@ class _LearnMore2State extends State<LearnMore2> {
                         color: Colors.black,
                       ),
                     ),
-                    Text("✓ ",
+                    Text("✓ Choose a start time for your schedule",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 18,
