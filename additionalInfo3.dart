@@ -1,12 +1,12 @@
 //COLLECTS INFO ON SCHEDULE SPECIFICATIONS
 import 'package:flutter/material.dart';
 
-class CreateSchedule3 extends StatefulWidget {
+class additionalInfo3 extends StatefulWidget {
   @override
-  _CreateSchedule3State createState() => _CreateSchedule3State();
+  _additionalInfo3State createState() => _additionalInfo3State();
 }
 
-class _CreateSchedule3State extends State<CreateSchedule3> {
+class _additionalInfo3State extends State<additionalInfo3> {
   int _valuebed = 1;
   String timeofDay = 'AM';
   int _valuewake = 1;
