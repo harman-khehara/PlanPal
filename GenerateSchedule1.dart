@@ -46,7 +46,7 @@ class _GenerateSchedule1State extends State<GenerateSchedule1> {
   String formatTimeOfDay(TimeOfDay tod) {
     final now = new DateTime.now();
     final dt = DateTime(now.year, now.month, now.day, tod.hour, tod.minute);
-    final format = DateFormat.jm(); //"6:00 AM"
+    final format = DateFormat.jm();
     return format.format(dt);
   }
 
@@ -116,6 +116,13 @@ class _GenerateSchedule1State extends State<GenerateSchedule1> {
     return newList3;
   }
 
+  BoxDecoration myBoxDecoration() {
+    return BoxDecoration(
+      border: Border.all(width: 3.0, color: Colors.redAccent[400]),
+      borderRadius: BorderRadius.all(Radius.circular(24.0)),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     List tasks = widget.tasks[0];
@@ -148,14 +155,82 @@ class _GenerateSchedule1State extends State<GenerateSchedule1> {
         ),
         body: ListView(children: [
           Container(
-              child: Column(children: [
-            for (var i = 0; i < newList3.length; i += 3)
-              Row(children: [
-                Text(newList3[i].toString()),
-                Text(newList3[i + 1].toString()),
-                Text(newList3[i + 2].toString())
-              ])
-          ]))
+              padding: const EdgeInsets.all(16.0),
+              child: Material(
+                  borderRadius: BorderRadius.circular(24.0),
+                  color: Colors.white,
+                  elevation: 14.0,
+                  shadowColor: Colors.blueGrey,
+                  child: Column(children: [
+                    for (var i = 0; i < newList3.length; i += 3)
+                      Row(children: [
+                        Container(
+                            width: 230.0,
+                            height: 100.0,
+                            padding: const EdgeInsets.all(16.0),
+                            child: Material(
+                                borderRadius: BorderRadius.circular(24.0),
+                                color: Colors.redAccent[400],
+                                elevation: 14.0,
+                                shadowColor: Colors.blueGrey,
+                                child: Center(
+                                    child: Row(children: [
+                                  Center(
+                                      child: Padding(
+                                          padding: const EdgeInsets.fromLTRB(
+                                              16.0, 16.0, 7.0, 16.0),
+                                          child:
+                                              Text(newList3[i + 1].toString(),
+                                                  textAlign: TextAlign.center,
+                                                  style: TextStyle(
+                                                    fontFamily: 'Acme',
+                                                    fontSize: 18,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.white,
+                                                  )))),
+                                  Text(' - ',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        fontFamily: 'Acme',
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      )),
+                                  Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                          7.0, 16.0, 16.0, 16.0),
+                                      child: Text(newList3[i + 2].toString(),
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                            fontFamily: 'Acme',
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white,
+                                          )))
+                                ])))),
+                        Container(
+                          decoration: myBoxDecoration(),
+                          width: 100.0,
+                            height: 70.0,
+                            //padding: const EdgeInsets.all(16.0),
+                            child: Material(
+                                borderRadius: BorderRadius.circular(24.0),
+                                color: Colors.white,
+                                //elevation: 14.0,
+                                //shadowColor: Colors.blueGrey,
+                                child:
+                        Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Center(child: Text(newList3[i].toString(),
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontFamily: 'Acme',
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.redAccent[400],
+                                )))))),
+                      ])
+                  ])))
         ]));
   }
 }
