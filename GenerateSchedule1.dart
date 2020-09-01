@@ -59,11 +59,11 @@ class _GenerateSchedule1State extends State<GenerateSchedule1> {
     return newList;
   }
 
-  List getNewList2(newList, startTime, unavailableTimes) {
+  List getNewList2(newList, startTime, unavailableTimes, startTime2) {
     List newList2 = [];
 
     for (var i = 0; i < newList.length; i++) {
-      if (!(unavailableTimes.contains(add(1, 0, startTime)))) {
+      if (!(unavailableTimes.contains(formatTimeOfDay(add(1, 0, startTime))))) {
         newList2.add(newList[i]);
         newList2.add(startTime);
         newList2.add(add(1, 0, startTime));
@@ -76,13 +76,20 @@ class _GenerateSchedule1State extends State<GenerateSchedule1> {
 //        }
         startTime = add(1, 10, startTime);
       } else {
-        startTime = add(1, 0, startTime);
-        while (unavailableTimes.contains(startTime)) {
+        if (unavailableTimes.contains(formatTimeOfDay(add(1, 0, startTime))) ||
+            unavailableTimes.contains(formatTimeOfDay(add(2, 0, startTime)))) {
           startTime = add(1, 0, startTime);
+          startTime2 = add(1, 0, startTime);
+          while (unavailableTimes.contains(formatTimeOfDay(startTime)) ||
+              unavailableTimes.contains(formatTimeOfDay(startTime2))) {
+            startTime = add(1, 0, startTime);
+            startTime2 = add(1, 0, startTime);
+          }
         }
+
         newList2.add(newList[i]);
         newList2.add(startTime);
-        newList2.add(add(1, 0, startTime));
+        newList2.add(startTime2);
         newList2.add('Break');
         newList2.add(add(1, 0, startTime));
         newList2.add(add(1, 10, startTime));
@@ -128,7 +135,8 @@ class _GenerateSchedule1State extends State<GenerateSchedule1> {
     }
 
     newList = getNewList(tasks, times);
-    newList2 = getNewList2(newList, startTime, unavailableTimes3);
+    newList2 = getNewList2(
+        newList, startTime, formatTime(unavailableTimes3), startTime);
     newList3 = formatTime(newList2);
     print(newList3);
 
@@ -138,8 +146,16 @@ class _GenerateSchedule1State extends State<GenerateSchedule1> {
               style: TextStyle(fontFamily: 'Acme')),
           backgroundColor: Colors.redAccent[400],
         ),
-        body: Container(
-            child: Column(
-                children: [for (var i in newList3) Text(i.toString())])));
+        body: ListView(children: [
+          Container(
+              child: Column(children: [
+            for (var i = 0; i < newList3.length; i += 3)
+              Row(children: [
+                Text(newList3[i].toString()),
+                Text(newList3[i + 1].toString()),
+                Text(newList3[i + 2].toString())
+              ])
+          ]))
+        ]));
   }
 }
