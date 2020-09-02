@@ -11,5 +11,5 @@
 </ol>
 
 <p align="center">
-  <img width ="124" height="265" src=images\"homepage.gif">
+  <img width ="124" height="265" src="homepage.gif">
 </p>
