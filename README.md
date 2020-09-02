@@ -7,3 +7,4 @@ The main features of this app include:
 
 1. Auto-generate a personalized schedule that fits to the user’s demands and specifications
 2. Push notifications for reminders about taking a break, starting the next task, hydrating, etc. 
+<p align="center"><img src="homepage.gif></p>
