@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:smart_schedule_creator/additionalInfo1.dart';
+import 'package:smart_schedule_creator/homepage.dart';
 
 class GenerateSchedule1 extends StatefulWidget {
   final List tasks;
@@ -29,6 +31,7 @@ class _GenerateSchedule1State extends State<GenerateSchedule1> {
   List newList3 = [];
   List unavailableTimes2 = [];
   List unavailableTimes3 = [];
+  String formatDate(DateTime date) => new DateFormat("MMMM d").format(date);
 
   TimeOfDay add(int hour, int minute, TimeOfDay time) {
     return TimeOfDay(hour: time.hour + hour, minute: time.minute + minute);
@@ -149,10 +152,50 @@ class _GenerateSchedule1State extends State<GenerateSchedule1> {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text("Generated Short Study Schedule",
+          title: Text("Your Short Study Schedule",
               style: TextStyle(fontFamily: 'Acme')),
           backgroundColor: Colors.redAccent[400],
         ),
+
+        bottomNavigationBar:
+        BottomNavigationBar(backgroundColor: Colors.redAccent[400],
+            items: [
+          new BottomNavigationBarItem(
+            icon: new IconButton(
+              icon: Icon(Icons.chevron_left, color: Colors.white),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => additionalInfo()));
+              },
+            ),
+            title: new Text(
+              "Back",
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+          new BottomNavigationBarItem(
+            icon: new IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => HomePage()));
+              },
+              icon: Icon(
+                Icons.home,
+                color: Colors.white,
+              ),
+            ),
+            title: new Text(
+              "Home",
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.white,),
+            ),
+          )
+        ]),
+
+
         body: ListView(children: [
           Container(
               padding: const EdgeInsets.all(16.0),
@@ -162,6 +205,30 @@ class _GenerateSchedule1State extends State<GenerateSchedule1> {
                   elevation: 14.0,
                   shadowColor: Colors.blueGrey,
                   child: Column(children: [
+                    Container(
+                      width: 380.0,
+                      height: 100.0,
+                      padding: const EdgeInsets.all(16.0),
+                      child: Material(
+                        borderRadius: BorderRadius.circular(24.0),
+                        color: Colors.redAccent[400],
+                        elevation: 14.0,
+                        shadowColor: Colors.blueGrey,
+                        child: Center(child:Text(
+                          '${formatDate(date)}',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 25,
+                            fontFamily: 'Karla',
+                            color: Colors.white,
+                          )
+                        )
+                        ),
+                      )
+                    ),
+
+
                     for (var i = 0; i < newList3.length; i += 3)
                       Row(children: [
                         Container(
@@ -210,7 +277,7 @@ class _GenerateSchedule1State extends State<GenerateSchedule1> {
                                 ])))),
                         Container(
                           decoration: myBoxDecoration(),
-                          width: 100.0,
+                          width: 110.0,
                             height: 70.0,
                             //padding: const EdgeInsets.all(16.0),
                             child: Material(
@@ -224,7 +291,7 @@ class _GenerateSchedule1State extends State<GenerateSchedule1> {
                             child: Center(child: Text(newList3[i].toString(),
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  fontFamily: 'Acme',
+                                  //fontFamily: 'Acme',
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.redAccent[400],
