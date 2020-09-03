@@ -10,6 +10,28 @@
   <li>Push notifications for reminders about taking a break, starting the next task, hydrating, etc. </li>
 </ol>
 
-<p align="center">
+<p>
   <img width ="150" height="300" src="homepage.gif">
 </p>
+
+<h2>Table of Contents</h2>
+<p><a href="#features">Features & Functionality</a></p>
+<p><a href="#installation">Installation Requirements</a></p>
+<p><a href="#framework">Technical Framework</a></p>
+<p><a href="#contributors">Contributors</a></p>
+<p><a href="#notes">Notes</a></p>
+
+
+
+<h2 id="features">Features & Functionality</h2>
+
+
+<h2 id="installation">Installation Requirements</h2>
+
+
+<h2 id="framework">Technical Framework</h2>
+
+
+<h2 id="contributors">Contributors</h2>
+
+<h2 id="notes">Notes</h2>
