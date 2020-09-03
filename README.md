@@ -20,10 +20,10 @@
 <p align="center"><a href="#notes">Notes</a></p>
 
 <h2 align="center" id="features">Features & Functionality</h2>
-<dl>
+<dl align="center">
   <dt>Short Study Schedule</dt>
   <dd align="center">The short study schedule option allows you to study in multiple 1 hour time intervals with 10 minute breaks. The user input for this schedule consists of the tasks the user would like to work on for the day, the amount of time the user would like to spend per task, the times they are unavailable, a start time as well as a date for the schedule to be generated.
-    <table>
+    <table  class="center">
       <tr>
         <th align="center">
           <img width="200" height"500" src="tasks.png">
