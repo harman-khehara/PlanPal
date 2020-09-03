@@ -20,21 +20,21 @@
 <p align="center"><a href="#notes">Notes</a></p>
 
 <h2 align="center" id="features">Features & Functionality</h2>
-<dl align="center">
+<dl>
   <dt>Short Study Schedule</dt>
-  <dd align="center">The short study schedule option allows you to study in multiple 1 hour time intervals with 10 minute breaks. The user input for this schedule consists of the tasks the user would like to work on for the day, the amount of time the user would like to spend per task, the times they are unavailable, a start time as well as a date for the schedule to be generated.
-    <table  class="center">
+  <dd>The short study schedule option allows you to study in multiple 1 hour time intervals with 10 minute breaks. The user input for this schedule consists of the tasks the user would like to work on for the day, the amount of time the user would like to spend per task, the times they are unavailable, a start time as well as a date for the schedule to be generated.
+    <table>
       <tr>
-        <th align="center">
+        <th>
           <img width="200" height"500" src="tasks.png">
         </th>
-        <th align="center">
+        <th>
           <img width="200" height"500" src="startTime.png">
         </th>
-        <th align="center">
+        <th>
           <img width="200" height"500" src="unavailable.png">
         </th>
-        <th align="center">
+        <th>
           <img width="200" height"500" src="schedule.png">
         </th>
       </tr>
@@ -42,10 +42,10 @@
     
   </dd>
   <dt>Long Study Schedule</dt>
-  <dd align="center">
+  <dd>
   </dd>
   <dt>Custom Study Schedule</dt>
-  <dd align="center">
+  <dd>
   </dd>      
 </dl>
 
