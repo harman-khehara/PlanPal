@@ -51,11 +51,23 @@
 
 
 <h2 align="center" id="installation">Installation Requirements</h2>
+<p align="center">Before you can run this app, ensure that you have the Flutter SDK and an emulator, such as the Android Emulator set up on your device. See the <a href"https://flutter.dev/docs/get-started/install">Flutter</a> website for more information.</p>
 
+<ol>
+  <li>Open up Command Prompt.</li>
+  <li>Use the <code>cd</code> command to change the directory to the location of the <code>.dart</code> files for this app.</li>
+  <li>Use the <code>flutter pub get</code> command to get all dependencies for the app.</li>
+  <li>Use the <code>flutter run</code> command.</li>
+  <li>This will run the app on the emulator you have chosen.</li>
+</ol>
+  
 
 <h2 align="center" id="framework">Technical Framework</h2>
+<p align ="center">This app was developed using the Android Studio IDE, Flutter SDK and Dart programming language.</p>
 
 
 <h2 align="center" id="contributors">Contributors</h2>
+<p align="center">The entirety of this program was designed and coded by Izba Amjad, Khushi Desai and Harman Khehara.</p>
 
 <h2 align="center" id="notes">Notes</h2>
+<p align="center">This app is currently not deployed on the App Store or Google Play.</p>
