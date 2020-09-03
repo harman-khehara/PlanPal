@@ -51,7 +51,8 @@
 
 
 <h2 align="center" id="installation">Installation Requirements</h2>
-<p align="center">Before you can run this app, ensure that you have the Flutter SDK and an emulator, such as the Android Emulator set up on your device. See the <a href"https://flutter.dev/docs/get-started/install">Flutter</a> website for more information.</p>
+<p align="center">Before you can run this app, ensure that you have the Flutter SDK and an emulator, such as the Android Emulator set up on your device. See the 
+  <a href="https://flutter.dev/docs/get-started/install">Flutter</a>website for more information.</p>
 
 <ol>
   <li>Open up Command Prompt.</li>
