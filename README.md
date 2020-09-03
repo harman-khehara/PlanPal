@@ -13,7 +13,7 @@
 </p>
 
 <h2 align="center">Table of Contents</h2>
-<p> align="center"<a href="#features">Features & Functionality</a></p>
+<p align="center"><a href="#features">Features & Functionality</a></p>
 <p align="center"><a href="#installation">Installation Requirements</a></p>
 <p align="center"><a href="#framework">Technical Framework</a></p>
 <p align="center"><a href="#contributors">Contributors</a></p>
