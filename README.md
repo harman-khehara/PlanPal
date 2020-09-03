@@ -59,7 +59,7 @@
   <li>Use the <code>cd</code> command to change the directory to the location of the <code>.dart</code> files for this app.</li>
   <li>Use the <code>flutter pub get</code> command to get all dependencies for the app.</li>
   <li>Use the <code>flutter run</code> command.</li>
-  <li>Now the app will run the app on the emulator you have chosen.</li>
+  <li>Now the app will run on the emulator you have chosen.</li>
 </ol>
   
 
