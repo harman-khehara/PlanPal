@@ -65,26 +65,24 @@ class _UnavailableTimesState extends State<UnavailableTimes> {
 
       //Set intial list value
       double addtime = endwaketime;
-      double plusone = addtime;
-      plusone +=1;
       if (addtime > 12){
         addtime -= 12;
         double plusone = addtime;
         plusone +=1;
-        unavTimes.add("$addtime PM - $plusone PM");
+        unavTimes.add("${addtime.toInt()} PM - ${plusone.toInt()} PM");
       }
       else if(addtime < 12){
         double plusone = addtime;
         plusone +=1;
         if(addtime == 12){
-          unavTimes.add("$addtime PM - 1.0 PM");}
-        else if (plusone == 12){unavTimes.add("$addtime AM - $plusone PM");
+          unavTimes.add("$addtime PM - 1 PM");}
+        else if (plusone == 12){unavTimes.add("${addtime.toInt()} AM - ${plusone.toInt()} PM");
         }
-        else if(addtime < 12) {unavTimes.add("$addtime AM - $plusone AM");
+        else if(addtime < 12) {unavTimes.add("${addtime.toInt()} AM - ${plusone.toInt()} AM");
         }
       }
       else if(addtime == 12){
-        unavTimes.add("$addtime PM - 1.0 PM");
+        unavTimes.add("${addtime.toInt()} PM - 1 PM");
       }
 
 
@@ -95,22 +93,22 @@ class _UnavailableTimesState extends State<UnavailableTimes> {
             addtime -= 12;
             double plusone = addtime;
             plusone +=1;
-            unavTimes.add("$addtime PM - $plusone PM");
+            unavTimes.add("${addtime.toInt()} PM - ${plusone.toInt()} PM");
           }
 
           else if (addtime < 12) {
             double plusone = addtime;
             plusone +=1;
             if(addtime == 12){
-              unavTimes.add("$addtime PM - 1.0 PM");}
-            else if (plusone == 12){unavTimes.add("$addtime AM - $plusone PM");
+              unavTimes.add("$addtime PM - 1 PM");}
+            else if (plusone == 12){unavTimes.add("${addtime.toInt()} AM - ${plusone.toInt()} PM");
             }
-            else if(addtime < 12) {unavTimes.add("$addtime AM - $plusone AM");
+            else if(addtime < 12) {unavTimes.add("${addtime.toInt()} AM - ${plusone.toInt()} AM");
             }
           }
 
           else if (addtime == 12) {
-            unavTimes.add("$addtime PM - 1.0 PM");
+            unavTimes.add("${addtime.toInt()} PM - 1 PM");
           }
 
         }
@@ -160,7 +158,22 @@ class _UnavailableTimesState extends State<UnavailableTimes> {
                   context,
                   MaterialPageRoute(
                       builder: (context) => TaskRow3(
-
+                        bedtime: bedtime,
+                        waketime: waketime,
+                        positionSun: positionSun,
+                        positionMon: positionMon,
+                        positionTue: positionTue,
+                        positionWed: positionWed,
+                        positionThu: positionThu,
+                        positionFri: positionFri,
+                        positionSat: positionSat,
+                        unavTimesSun: unavTimesSun,
+                        unavTimesMon: unavTimesMon,
+                        unavTimesTue: unavTimesTue,
+                        unavTimesWed: unavTimesWed,
+                        unavTimesThu: unavTimesThu,
+                        unavTimesFri: unavTimesFri,
+                        unavTimesSat: unavTimesSat,
                       )));
             },
             icon: Icon(
