@@ -6,6 +6,5 @@ class Globals {
   static List customTasks = [];
   static List customTimes = [];
   static List customDays = [];
-  static String extraEventsNotice;
-  //add radio button bool
+  static List extraEventsNotice = [];
 }

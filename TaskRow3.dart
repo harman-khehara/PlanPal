@@ -1,5 +1,11 @@
 //Create widget for task input for custom schedule
 
+/// QUESTIONS TO ASK
+// What is the activity?
+// How much time do you usually spend on it?
+// What days do you usually prefer for this activity?
+// Would you like to add random events for hydrating, taking a walk, etc?
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:smart_schedule_creator/globals.dart';
@@ -7,7 +13,7 @@ import 'package:smart_schedule_creator/globals.dart';
 List userTasks = Globals.customTasks;
 List customTimes = Globals.customTimes;
 List customDays = Globals.customDays;
-String extraEventsNotice = Globals.extraEventsNotice;
+List extraEventsNotice = Globals.extraEventsNotice;
 
 
 class TaskRow3 extends StatefulWidget {
@@ -21,14 +27,13 @@ class TaskRow3 extends StatefulWidget {
   List get days{
     return customDays;
   }
-  String get exEvents{
+  List get exEvents{
     return extraEventsNotice;
   }
   @override
   _TaskRow3State createState() => _TaskRow3State();
 }
 
-enum ExtraEvents { Yes, No }
 
 class _TaskRow3State extends State<TaskRow3> {
 
@@ -43,9 +48,9 @@ class _TaskRow3State extends State<TaskRow3> {
   bool _checkedFri = false;
   bool _checkedSat = false;
 
+  var extraItems = ["Yes","No"];
   List _checkedDays = [1,2,3,4,5,6,7]; //Sunday == 1, Monday == 2, etc.
-
-  ExtraEvents _extraEvents = ExtraEvents.Yes;
+  List _extraValues = [""];
 
   @override
   Widget build(BuildContext context) {
@@ -174,47 +179,39 @@ class _TaskRow3State extends State<TaskRow3> {
         ),
         Padding(padding: const EdgeInsets.all(10.0),
           child: Container(
-            width: 240.0,
+            width: 400.0,
+            height: 100.0,
             child: Column(
                 children: [
                   Text("Would you like to add random events for hydrating, taking a walk, etc?",
-                      style: TextStyle(fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.redAccent[400])
-                  ),
-                  Row(
-                    children: [
-                      Radio(
-                        value: ExtraEvents.Yes,
-                        groupValue: _extraEvents,
-                        onChanged: (ExtraEvents value){
-                          userTasks.add(textControllerName.text);
-                          customTimes.add(numControllerTime.text);
-                          _extraEvents = value;
-                          extraEventsNotice = _extraEvents.toString();
-                          setState(() {
-                          });
-                        },
-                      ),
-                      Text("Yes"),
-                      Radio(
-                        value: ExtraEvents.No,
-                        groupValue: _extraEvents,
-                        onChanged: (ExtraEvents value){
-                          userTasks.add(textControllerName.text);
-                          customTimes.add(numControllerTime.text);
-                          _extraEvents = value;
-                          extraEventsNotice = _extraEvents.toString();
-                          setState(() {
-                          });
-                        },
-                      ),
-                      Text("No")
-                    ],
+                    style: TextStyle(fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.redAccent[400])
+                   ),
+                  DropdownButton<String>(
+                      value: _extraValues[0],
+                      icon: Icon(Icons.expand_more),
+                      iconSize: 24,
+                      elevation: 16,
+                      style: TextStyle(color: Colors.black),
+                      onChanged: (String newValue) {
+                        _extraValues[0] = newValue;
+                        extraEventsNotice.add(_extraValues[0]);
+                        userTasks.add(textControllerName.text);
+                        customTimes.add(numControllerTime.toString());
+                        setState(() {
+                        });
+                      },
+                      items:
+                      extraItems.map<DropdownMenuItem<String>>((String value){
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
                   )
-                ],
+                ]
             ),
-
             ),
           ),
         Center(
@@ -230,10 +227,4 @@ class _TaskRow3State extends State<TaskRow3> {
     );
   }
 }
-
-/// QUESTIONS TO ASK
-// What is the activity?
-// How much time do you usually spend on it?
-// What days do you usually prefer for this activity?
-// Would you like to add random events for hydrating, taking a walk, etc?
 
