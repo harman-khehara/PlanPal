@@ -4,7 +4,6 @@
 // What is the activity?
 // How much time do you usually spend on it?
 // What days do you usually prefer for this activity?
-// Would you like to add random events for hydrating, taking a walk, etc?
 
 import 'package:flutter/material.dart';
 import 'package:smart_schedule_creator/globals.dart';
@@ -12,8 +11,6 @@ import 'package:smart_schedule_creator/globals.dart';
 List userTasks = Globals.customTasks;
 List customTimes = Globals.customTimes;
 List customDays = Globals.customDays;
-List extraEventsNotice = Globals.extraEventsNotice;
-
 
 class TaskRow3 extends StatefulWidget {
 
@@ -26,18 +23,17 @@ class TaskRow3 extends StatefulWidget {
   List get days{
     return customDays;
   }
-  List get exEvents{
-    return extraEventsNotice;
-  }
+
   @override
   _TaskRow3State createState() => _TaskRow3State();
 }
 
-
 class _TaskRow3State extends State<TaskRow3> {
 
   final textControllerName = TextEditingController();
-  final numControllerTime = TextEditingController();
+
+  var timeList = ["1","2","3","4","5","6","7","8","9","10",'11','12'];
+  List _timeValues = ["1"];
 
   bool _checkedSun = false;
   bool _checkedMon = false;
@@ -47,196 +43,158 @@ class _TaskRow3State extends State<TaskRow3> {
   bool _checkedFri = false;
   bool _checkedSat = false;
 
-  var extraItems = ["Yes","No"];
-  List _checkedDays = [1,2,3,4,5,6,7]; //Sunday == 1, Monday == 2, etc.
-  List _extraValues = ["Yes"];
 
   @override
   Widget build(BuildContext context) {
-    return new Column( mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        Flexible(fit: FlexFit.loose,
-          child: ListView(
+    return new Card(
+      child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Container(
+              width: 400.0,
+              child: TextFormField(
+                controller: textControllerName,
+                decoration: const InputDecoration(
+                  //contentPadding: EdgeInsets.symmetric(vertical: 25.0,),
+                    hintText: "Enter an activity",
+                    icon: Icon(Icons.assignment)),
+              ),
+            ),
+          ),
+
+          Text("How many hours do you expect to spend on this activity?",style: TextStyle(color: Colors.blueAccent,fontFamily: 'Acme', fontSize: 17,)),
+
+          Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Container(
+                  height: 50.0,
+                  width: 80.0,
+                  decoration: ShapeDecoration(
+                    color: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      side: BorderSide(
+                          width: 2.0,
+                          style: BorderStyle.solid,
+                          color: Colors.redAccent[400]),
+                      borderRadius: BorderRadius.all(Radius.circular(16.0)),
+                    ),
+                  ),
+                  child: Center(
+                    child: DropdownButton<String>(
+                      value: _timeValues[0],
+                      icon: Icon(Icons.expand_more),
+                      iconSize: 24,
+                      elevation: 16,
+                      style: TextStyle(color: Colors.black),
+                      onChanged: (String newValue) {
+                        _timeValues[0] = newValue;
+                        customTimes.add(int.parse(_timeValues[0]));
+                        userTasks.add(textControllerName.text);
+                        setState(() {
+                          //print(dropdownValue);
+                        });
+                      },
+                      items:
+                      timeList.map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                    ),
+                  ))),
+          Text("What days do you usually prefer for this activity?",style: TextStyle(color: Colors.blueAccent,fontFamily: 'Acme', fontSize: 17,)),
+
+          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Padding(padding: const EdgeInsets.all(10.0),
-                child: Container(
-                  width: 240.0,
-                  height: 240.0,
-                  child: TextFormField(
-                    controller: textControllerName,
-                    decoration: const InputDecoration(
-                        hintText: "What's the activity?",
-                        icon: Icon(Icons.event)),
-                  ),
-                ),
-              ),
-              Padding(padding: const EdgeInsets.all(10.0),
-                child: Container(
-                    width: 240.0,
-                    height: 240.0,
-                    child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Text("How much time do you usually spend on this activity?"),
-                        Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-                          TextFormField(
-                            controller: numControllerTime,
-                            keyboardType: TextInputType.number,
-                            decoration: const InputDecoration(
-                                hintText: "Ex: 30",
-                                icon: Icon(Icons.access_time)),
-                          ),
-                          Text("mins", style: TextStyle(fontFamily: 'Acme', fontSize: 18,))
-                        ],)
-                      ],
-                    )
-                ),
-              ),
-              Padding(padding: const EdgeInsets.all(10.0),
-                child: Container(
-                  height: 600.0,
-                  width: 400.0,
-                  child: Column(
-                    children: [
-                      Text("What days do you usually prefer for this activity?",style: TextStyle(fontFamily: 'Acme', fontSize: 18,)),
-                      CheckboxListTile(
-                          title: Text("Sunday"),
-                          value: _checkedSun,
-                          onChanged: (bool value){
-                            if(_checkedSun = true){
-                              customDays.add(_checkedDays[1]);
-                            }
-                            setState(() {
-                              _checkedSun = value;
-                            });
-                          }
-                      ),
-                      CheckboxListTile(
-                          title: Text("Monday"),
-                          value: _checkedMon,
-                          onChanged: (bool value){
-                            if(_checkedMon = true){
-                              customDays.add(_checkedDays[2]);
-                            }
-                            setState(() {
-                              _checkedMon = value;
-                            });
-                          }
-                      ),
-                      CheckboxListTile(
-                          title: Text("Tuesday"),
-                          value: _checkedTue,
-                          onChanged: (bool value){
-                            if(_checkedTue = true){
-                              customDays.add(_checkedDays[3]);
-                            }
-                            setState(() {
-                              _checkedTue = value;
-                            });
-                          }
-                      ),
-                      CheckboxListTile(
-                          title: Text("Wednesday"),
-                          value: _checkedWed,
-                          onChanged: (bool value){
-                            if(_checkedWed = true){
-                              customDays.add(_checkedDays[4]);
-                            }
-                            setState(() {
-                              _checkedWed = value;
-                            });
-                          }
-                      ),
-                      CheckboxListTile(
-                          title: Text("Thursday"),
-                          value: _checkedThu,
-                          onChanged: (bool value){
-                            if(_checkedThu = true){
-                              customDays.add(_checkedDays[5]);
-                            }
-                            setState(() {
-                              _checkedThu = value;
-                            });
-                          }
-                      ),
-                      CheckboxListTile(
-                          title: Text("Friday"),
-                          value: _checkedFri,
-                          onChanged: (bool value){
-                            if(_checkedFri = true){
-                              customDays.add(_checkedDays[6]);
-                            }
-                            setState(() {
-                              _checkedFri = value;
-                            });
-                          }
-                      ),
-                      CheckboxListTile(
-                          title: Text("Saturday"),
-                          value: _checkedSat,
-                          onChanged: (bool value){
-                            if(_checkedSat = true){
-                              customDays.add(_checkedDays[7]);
-                            }
-                            setState(() {
-                              _checkedSat = value;
-                            });
-                          }
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              Padding(padding: const EdgeInsets.all(10.0),
-                child: Container(
-                  width: 400.0,
-                  height: 100.0,
-                  child: Column(
-                      children: [
-                        Text("Would you like to add random events for hydrating, taking a walk, etc?",
-                            style: TextStyle(fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.redAccent[400])
-                        ),
-                        DropdownButton<String>(
-                          value: _extraValues[0],
-                          icon: Icon(Icons.expand_more),
-                          iconSize: 24,
-                          elevation: 16,
-                          style: TextStyle(color: Colors.black),
-                          onChanged: (String newValue) {
-                            _extraValues[0] = newValue;
-                            extraEventsNotice.add(_extraValues[0]);
-                            userTasks.add(textControllerName.text);
-                            customTimes.add(numControllerTime.text);
-                            setState(() {
-                            });
-                          },
-                          items:
-                          extraItems.map<DropdownMenuItem<String>>((String value){
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
-                        )
-                      ]
-                  ),
-                ),
-              ),
-              Center(
-                child: Divider(
-                  color: Colors.redAccent[400],
-                  height: 20,
-                  thickness: 2,
-                  indent: 0,
-                  endIndent: 0,
-                ),
-              )
+              Text("SUN",style: TextStyle(fontFamily: 'Acme', fontSize: 17,)),
+              Text("MON",style: TextStyle(fontFamily: 'Acme', fontSize: 17,)),
+              Text("TUE",style: TextStyle(fontFamily: 'Acme', fontSize: 17,)),
+              Text("WED",style: TextStyle(fontFamily: 'Acme', fontSize: 17,)),
+              Text("THU",style: TextStyle(fontFamily: 'Acme', fontSize: 17,)),
+              Text("FRI",style: TextStyle(fontFamily: 'Acme', fontSize: 17,)),
+              Text("SAT",style: TextStyle(fontFamily: 'Acme', fontSize: 17,)),
             ],
           ),
-        )
-
-      ]
+          Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Checkbox(
+                value: _checkedSun,
+                onChanged: (bool value){
+                  setState(() {
+                    _checkedSun=value;
+                    customDays.add(1);
+                  });
+                },
+              ),
+              Checkbox(
+                value: _checkedMon,
+                onChanged: (bool value){
+                  setState(() {
+                    _checkedMon=value;
+                    customDays.add(2);
+                  });
+                },
+              ),
+              Checkbox(
+                value: _checkedTue,
+                onChanged: (bool value){
+                  setState(() {
+                    _checkedTue=value;
+                    customDays.add(3);
+                  });
+                },
+              ),
+              Checkbox(
+                value: _checkedWed,
+                onChanged: (bool value){
+                  setState(() {
+                    _checkedWed=value;
+                    customDays.add(4);
+                  });
+                },
+              ),
+              Checkbox(
+                value: _checkedThu,
+                onChanged: (bool value){
+                  setState(() {
+                    _checkedThu=value;
+                    customDays.add(5);
+                  });
+                },
+              ),
+              Checkbox(
+                value: _checkedFri,
+                onChanged: (bool value){
+                  setState(() {
+                    _checkedFri=value;
+                    customDays.add(6);
+                  });
+                },
+              ),
+              Checkbox(
+                value: _checkedSat,
+                onChanged: (bool value){
+                  setState(() {
+                    _checkedSat=value;
+                    customDays.add(7);
+                  });
+                },
+              ),
+            ],
+          ),
+          Center(
+            child: Divider(
+              color: Colors.redAccent[400],
+              height: 20,
+              thickness: 2,
+              indent: 0,
+              endIndent: 0,
+            ),
+          )
+        ],
+      )
     );
   }
 }

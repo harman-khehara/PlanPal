@@ -6,5 +6,4 @@ class Globals {
   static List customTasks = [];
   static List customTimes = [];
   static List customDays = [];
-  static List extraEventsNotice = [];
 }

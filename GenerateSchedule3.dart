@@ -16,6 +16,11 @@ class GenerateSchedule3 extends StatefulWidget {
   final Set positionThu;
   final Set positionFri;
   final Set positionSat;
+  final List newTimes;
+  final List newTasks;
+  final List newDays;
+  final List extraEventsNotice;
+
 
   GenerateSchedule3({
     Key key,
@@ -29,6 +34,10 @@ class GenerateSchedule3 extends StatefulWidget {
     @required this.positionThu,
     @required this.positionFri,
     @required this.positionSat,
+    @required this.newTimes,
+    @required this.newTasks,
+    @required this.newDays,
+    @required this.extraEventsNotice,
 
   }) : super(key: key);
 
@@ -52,6 +61,10 @@ class _GenerateSchedule3State extends State<GenerateSchedule3> {
     Set positionThu = widget.positionThu;
     Set positionFri = widget.positionFri;
     Set positionSat = widget.positionSat;
+    List newTimes = widget.newTimes;
+    List newDays = widget.newDays;
+    List newTasks = widget.newTasks;
+    List extraEventsNotice = widget.extraEventsNotice;
 
     return Scaffold(
         appBar: AppBar(
