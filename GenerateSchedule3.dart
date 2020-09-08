@@ -38,8 +38,21 @@ class GenerateSchedule3 extends StatefulWidget {
 
 
 class _GenerateSchedule3State extends State<GenerateSchedule3> {
+
   @override
   Widget build(BuildContext context) {
+
+    TimeOfDay bedtime = widget.bedtime;
+    TimeOfDay waketime = widget.waketime;
+    List unavTimesSun = widget.unavTimesSun;
+    Set positionSun = widget.positionSun;
+    Set positionMon = widget.positionMon;
+    Set positionTue = widget.positionTue;
+    Set positionWed = widget.positionWed;
+    Set positionThu = widget.positionThu;
+    Set positionFri = widget.positionFri;
+    Set positionSat = widget.positionSat;
+
     return Scaffold(
         appBar: AppBar(
         title: Text("Your Custom Study Schedule",
@@ -55,7 +68,10 @@ class _GenerateSchedule3State extends State<GenerateSchedule3> {
                 icon: Icon(Icons.chevron_left, color: Colors.white),
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => UnavailableTimes()));
+                      MaterialPageRoute(builder: (context) => UnavailableTimes(
+                        bedtime: bedtime,
+                        waketime: waketime,
+                      )));
                 },
               ),
               title: new Text(
