@@ -74,13 +74,13 @@ class _GenerateSchedule2State extends State<GenerateSchedule2> {
         newList2.add(add(1, 0, startTime));
         startTime = add(1, 0, startTime);
         i += 1;
-        if (i <= newList.length) {
+        if (i < newList.length) {
           newList2.add(newList[i]);
           newList2.add(startTime);
           newList2.add(add(1, 0, startTime));
           startTime = add(1, 0, startTime);
           i += 1;
-          if (i <= newList.length) {
+          if (i < newList.length) {
             newList2.add(newList[i]);
             newList2.add(startTime);
             newList2.add(add(1, 0, startTime));
@@ -120,13 +120,13 @@ class _GenerateSchedule2State extends State<GenerateSchedule2> {
         newList2.add(add(1, 0, startTime));
         startTime = add(1, 0, startTime);
         i += 1;
-        if (i <= newList.length) {
+        if (i < newList.length) {
           newList2.add(newList[i]);
           newList2.add(startTime);
           newList2.add(add(1, 0, startTime));
           startTime = add(1, 0, startTime);
           i += 1;
-          if (i <= newList.length) {
+          if (i < newList.length) {
             newList2.add(newList[i]);
             newList2.add(startTime);
             newList2.add(add(1, 0, startTime));
