@@ -1,5 +1,7 @@
 //Create widget for task input for custom schedule
 
+import 'dart:collection';
+
 /// QUESTIONS TO ASK
 // What is the activity?
 // How much time do you usually spend on it?
@@ -10,7 +12,14 @@ import 'package:smart_schedule_creator/globals.dart';
 
 List userTasks = Globals.customTasks;
 List customTimes = Globals.customTimes;
-List customDays = Globals.customDays;
+List customDaySunday = Globals.customDaySunday;
+List customDayMonday = Globals.customDayMonday;
+List customDayTuesday = Globals.customDayTuesday;
+List customDayWednesday = Globals.customDayWednesday;
+List customDayThursday = Globals.customDayThursday;
+List customDayFriday = Globals.customDayFriday;
+List customDaySaturday = Globals.customDaySaturday;
+
 
 class TaskRow3 extends StatefulWidget {
 
@@ -20,9 +29,28 @@ class TaskRow3 extends StatefulWidget {
   List get tasks{
     return userTasks;
   }
-  List get days{
-    return customDays;
+  List get daysSun{
+    return customDaySunday;
   }
+  List get daysMon{
+    return customDayMonday;
+  }
+  List get daysTue{
+    return customDayTuesday;
+  }
+  List get daysWed{
+    return customDayWednesday;
+  }
+  List get daysThu{
+    return customDayThursday;
+  }
+  List get daysFri{
+    return customDayFriday;
+  }
+  List get daysSat{
+    return customDaySaturday;
+  }
+
 
   @override
   _TaskRow3State createState() => _TaskRow3State();
@@ -42,7 +70,6 @@ class _TaskRow3State extends State<TaskRow3> {
   bool _checkedThu = false;
   bool _checkedFri = false;
   bool _checkedSat = false;
-
 
   @override
   Widget build(BuildContext context) {
@@ -89,10 +116,9 @@ class _TaskRow3State extends State<TaskRow3> {
                       style: TextStyle(color: Colors.black),
                       onChanged: (String newValue) {
                         _timeValues[0] = newValue;
-                        customTimes.add(int.parse(_timeValues[0]));
+                        customTimes.add(_timeValues[0]);
                         userTasks.add(textControllerName.text);
                         setState(() {
-                          //print(dropdownValue);
                         });
                       },
                       items:
@@ -122,63 +148,63 @@ class _TaskRow3State extends State<TaskRow3> {
               Checkbox(
                 value: _checkedSun,
                 onChanged: (bool value){
+                  customDaySunday.add(textControllerName.text);
                   setState(() {
                     _checkedSun=value;
-                    customDays.add(1);
                   });
                 },
               ),
               Checkbox(
                 value: _checkedMon,
                 onChanged: (bool value){
+                  customDayMonday.add(textControllerName.text);
                   setState(() {
                     _checkedMon=value;
-                    customDays.add(2);
                   });
                 },
               ),
               Checkbox(
                 value: _checkedTue,
                 onChanged: (bool value){
+                  customDayTuesday.add(textControllerName.text);
                   setState(() {
                     _checkedTue=value;
-                    customDays.add(3);
                   });
                 },
               ),
               Checkbox(
                 value: _checkedWed,
                 onChanged: (bool value){
+                  customDayWednesday.add(textControllerName.text);
                   setState(() {
                     _checkedWed=value;
-                    customDays.add(4);
                   });
                 },
               ),
               Checkbox(
                 value: _checkedThu,
                 onChanged: (bool value){
+                  customDayThursday.add(textControllerName.text);
                   setState(() {
                     _checkedThu=value;
-                    customDays.add(5);
                   });
                 },
               ),
               Checkbox(
                 value: _checkedFri,
                 onChanged: (bool value){
+                  customDayFriday.add(textControllerName.text);
                   setState(() {
                     _checkedFri=value;
-                    customDays.add(6);
                   });
                 },
               ),
               Checkbox(
                 value: _checkedSat,
                 onChanged: (bool value){
+                  customDaySaturday.add(textControllerName.text);
                   setState(() {
                     _checkedSat=value;
-                    customDays.add(7);
                   });
                 },
               ),

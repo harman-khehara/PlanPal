@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_schedule_creator/CreateSchedule3.dart';
 import 'package:smart_schedule_creator/GenerateSchedule3.dart';
+import 'package:smart_schedule_creator/GeneratingTasks.dart';
 import 'package:smart_schedule_creator/TaskRow3.dart';
 
 
@@ -26,6 +27,13 @@ class UnavailableTimes extends StatefulWidget {
 class _UnavailableTimesState extends State<UnavailableTimes> {
 
   List unavTimesSun = [];
+  List unavTimesMon = [];
+  List unavTimesTue = [];
+  List unavTimesWed = [];
+  List unavTimesThu = [];
+  List unavTimesFri = [];
+  List unavTimesSat = [];
+
   List unavailabilityTimes = [];
 
   Set<String> displaytimes = {};
@@ -111,6 +119,13 @@ class _UnavailableTimesState extends State<UnavailableTimes> {
     }
 
     unavTimesSun = numberOfGrids(unavailabilityTimes);
+    unavTimesMon = numberOfGrids(unavailabilityTimes);
+    unavTimesTue = numberOfGrids(unavailabilityTimes);
+    unavTimesWed = numberOfGrids(unavailabilityTimes);
+    unavTimesThu = numberOfGrids(unavailabilityTimes);
+    unavTimesFri = numberOfGrids(unavailabilityTimes);
+    unavTimesSat = numberOfGrids(unavailabilityTimes);
+
 
     String textHolder = "Your selected unavailability times will display here: $displaytimes";
     _changeText () {
@@ -146,7 +161,7 @@ class _UnavailableTimesState extends State<UnavailableTimes> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => GenerateSchedule3(
+                      builder: (context) => GeneratingTasks(
                         bedtime: bedtime,
                         waketime: waketime,
                         positionSun: positionSun,
@@ -157,6 +172,12 @@ class _UnavailableTimesState extends State<UnavailableTimes> {
                         positionFri: positionFri,
                         positionSat: positionSat,
                         unavTimesSun: unavTimesSun,
+                        unavTimesMon: unavTimesMon,
+                        unavTimesTue: unavTimesTue,
+                        unavTimesWed: unavTimesWed,
+                        unavTimesThu: unavTimesThu,
+                        unavTimesFri: unavTimesFri,
+                        unavTimesSat: unavTimesSat,
                       )));
             },
             icon: Icon(
@@ -195,11 +216,11 @@ class _UnavailableTimesState extends State<UnavailableTimes> {
               SizedBox(height: 20.0,),
               ExpansionTile(title: Text ("MONDAY", style: TextStyle(fontFamily: 'Acme', fontSize: 23,)),
                 children: [
-                  for(var i = 0; i < unavTimesSun.length; i++ ) Card(child: ListTile(
+                  for(var i = 0; i < unavTimesMon.length; i++ ) Card(child: ListTile(
                       title: Text(unavTimesSun[i].toString()),
                           onTap: () {
                             positionMon.add(i);
-                            displaytimes.add("Monday: " + unavTimesSun[i].toString());
+                            displaytimes.add("Monday: " + unavTimesMon[i].toString());
                             _changeText();
                           },
                   )),
@@ -208,11 +229,11 @@ class _UnavailableTimesState extends State<UnavailableTimes> {
               SizedBox(height: 20.0,),
               ExpansionTile(title: Text ("TUESDAY", style: TextStyle(fontFamily: 'Acme', fontSize: 23,)),
                 children: [
-                  for(var i = 0; i < unavTimesSun.length; i++ ) Card(child: ListTile(
+                  for(var i = 0; i < unavTimesTue.length; i++ ) Card(child: ListTile(
                       title: Text(unavTimesSun[i].toString()),
                       onTap: () {
                         positionTue.add(i);
-                        displaytimes.add("Tuesday: " + unavTimesSun[i].toString());
+                        displaytimes.add("Tuesday: " + unavTimesTue[i].toString());
                         _changeText();
                       },
                   )),
@@ -221,11 +242,11 @@ class _UnavailableTimesState extends State<UnavailableTimes> {
               SizedBox(height: 20.0,),
               ExpansionTile(title: Text ("WEDNESDAY", style: TextStyle(fontFamily: 'Acme', fontSize: 23,)),
                 children: [
-                  for(var i = 0; i < unavTimesSun.length; i++ ) Card(child: ListTile(
+                  for(var i = 0; i < unavTimesWed.length; i++ ) Card(child: ListTile(
                       title: Text(unavTimesSun[i].toString()),
                       onTap: () {
                         positionWed.add(i);
-                        displaytimes.add("Wednesday: " +unavTimesSun[i].toString());
+                        displaytimes.add("Wednesday: " +unavTimesWed[i].toString());
                         _changeText();
                       },
                   )),
@@ -234,11 +255,11 @@ class _UnavailableTimesState extends State<UnavailableTimes> {
               SizedBox(height: 20.0,),
               ExpansionTile(title: Text ("THURSDAY", style: TextStyle(fontFamily: 'Acme', fontSize: 23,)),
                 children: [
-                  for(var i = 0; i < unavTimesSun.length; i++ ) Card(child: ListTile(
+                  for(var i = 0; i < unavTimesThu.length; i++ ) Card(child: ListTile(
                       title: Text(unavTimesSun[i].toString()),
                       onTap: () {
                         positionThu.add(i);
-                        displaytimes.add("Thursday: " + unavTimesSun[i].toString());
+                        displaytimes.add("Thursday: " + unavTimesThu[i].toString());
                         _changeText();
                       },
                   )),
@@ -247,11 +268,11 @@ class _UnavailableTimesState extends State<UnavailableTimes> {
               SizedBox(height: 20.0,),
               ExpansionTile(title: Text ("FRIDAY", style: TextStyle(fontFamily: 'Acme', fontSize: 23,)),
                 children: [
-                  for(var i = 0; i < unavTimesSun.length; i++ ) Card(child: ListTile(
+                  for(var i = 0; i < unavTimesFri.length; i++ ) Card(child: ListTile(
                       title: Text(unavTimesSun[i].toString()),
                       onTap: () {
                         positionFri.add(i);
-                        displaytimes.add("Friday: " + unavTimesSun[i].toString());
+                        displaytimes.add("Friday: " + unavTimesFri[i].toString());
                         _changeText();
                       },
                   )),
@@ -260,11 +281,11 @@ class _UnavailableTimesState extends State<UnavailableTimes> {
               SizedBox(height: 20.0,),
               ExpansionTile(title: Text ("SATURDAY", style: TextStyle(fontFamily: 'Acme', fontSize: 23,)),
                 children: [
-                  for(var i = 0; i < unavTimesSun.length; i++ ) Card(child: ListTile(
+                  for(var i = 0; i < unavTimesSat.length; i++ ) Card(child: ListTile(
                       title: Text(unavTimesSun[i].toString()),
                       onTap: () {
                         positionSat.add(i);
-                        displaytimes.add("Saturday: " + unavTimesSun[i].toString());
+                        displaytimes.add("Saturday: " + unavTimesSat[i].toString());
                         _changeText();
                       },
                   )),

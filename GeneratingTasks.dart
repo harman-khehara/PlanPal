@@ -6,6 +6,12 @@ import 'package:smart_schedule_creator/UnavailableTimes.dart';
 class GeneratingTasks extends StatefulWidget {
 
   final List unavTimesSun;
+  final List unavTimesMon;
+  final List unavTimesTue;
+  final List unavTimesWed;
+  final List unavTimesThu;
+  final List unavTimesFri;
+  final List unavTimesSat;
   final TimeOfDay bedtime;
   final TimeOfDay waketime;
   final Set positionSun;
@@ -19,6 +25,12 @@ class GeneratingTasks extends StatefulWidget {
   GeneratingTasks({
     Key key,
     @required this.unavTimesSun,
+    @required this.unavTimesMon,
+    @required this.unavTimesTue,
+    @required this.unavTimesWed,
+    @required this.unavTimesThu,
+    @required this.unavTimesFri,
+    @required this.unavTimesSat,
     @required this.bedtime,
     @required this.waketime,
     @required this.positionSun,
@@ -39,11 +51,13 @@ class _GeneratingTasksState extends State<GeneratingTasks> {
   int count = 1;
   List newTimes = [];
   List newTasks = [];
-  List newDays = [];
-  List extraEventsNotice = [];
-
-  var extraItems = ["Yes","No"];
-  List _extraValues = ["Yes"];
+  List newDaysSun = [];
+  List newDaysMon = [];
+  List newDaysTue = [];
+  List newDaysWed = [];
+  List newDaysThu = [];
+  List newDaysFri = [];
+  List newDaysSat = [];
 
   @override
   Widget build(BuildContext context) {
@@ -51,6 +65,12 @@ class _GeneratingTasksState extends State<GeneratingTasks> {
     TimeOfDay bedtime = widget.bedtime;
     TimeOfDay waketime = widget.waketime;
     List unavTimesSun = widget.unavTimesSun;
+    List unavTimesMon = widget.unavTimesMon;
+    List unavTimesTue = widget.unavTimesTue;
+    List unavTimesWed = widget.unavTimesWed;
+    List unavTimesThu = widget.unavTimesThu;
+    List unavTimesFri = widget.unavTimesFri;
+    List unavTimesSat = widget.unavTimesSat;
     Set positionSun = widget.positionSun;
     Set positionMon = widget.positionMon;
     Set positionTue = widget.positionTue;
@@ -72,7 +92,31 @@ class _GeneratingTasksState extends State<GeneratingTasks> {
     }
 
     for (var i = 0; i < _tasks.length; i++) {
-      newDays.add(_tasks[i].days);
+      newDaysSun.add(_tasks[i].daysSun);
+    }
+
+    for (var i = 0; i < _tasks.length; i++) {
+      newDaysMon.add(_tasks[i].daysMon);
+    }
+
+    for (var i = 0; i < _tasks.length; i++) {
+      newDaysTue.add(_tasks[i].daysTue);
+    }
+
+    for (var i = 0; i < _tasks.length; i++) {
+      newDaysWed.add(_tasks[i].daysWed);
+    }
+
+    for (var i = 0; i < _tasks.length; i++) {
+      newDaysThu.add(_tasks[i].daysThu);
+    }
+
+    for (var i = 0; i < _tasks.length; i++) {
+      newDaysFri.add(_tasks[i].daysFri);
+    }
+
+    for (var i = 0; i < _tasks.length; i++) {
+      newDaysSat.add(_tasks[i].daysSat);
     }
 
     int maxLimit (thisTime) {
@@ -148,19 +192,30 @@ class _GeneratingTasksState extends State<GeneratingTasks> {
                             positionFri: positionFri,
                             positionSat: positionSat,
                             unavTimesSun: unavTimesSun,
+                            unavTimesMon: unavTimesMon,
+                            unavTimesTue: unavTimesTue,
+                            unavTimesWed: unavTimesWed,
+                            unavTimesThu: unavTimesThu,
+                            unavTimesFri: unavTimesFri,
+                            unavTimesSat: unavTimesSat,
                             newTimes: newTimes,
                             newTasks: newTasks,
-                            newDays: newDays,
-                            extraEventsNotice: extraEventsNotice,
+                            newDaysSun: newDaysSun,
+                            newDaysMon: newDaysMon,
+                            newDaysTue: newDaysTue,
+                            newDaysWed: newDaysWed,
+                            newDaysThu: newDaysThu,
+                            newDaysFri: newDaysFri,
+                            newDaysSat: newDaysSat,
                           )));
                 },
                 icon: Icon(
-                  Icons.home,
+                  Icons.chevron_right,
                   color: Colors.white,
                 ),
               ),
               title: new Text(
-                "Home",
+                "Next",
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.white,),
               ),
@@ -188,30 +243,6 @@ class _GeneratingTasksState extends State<GeneratingTasks> {
                                   textAlign: TextAlign.center,
                                   style: TextStyle(fontSize: 18, color: Colors.black,fontWeight: FontWeight.bold,),
                                 ),
-                                Text(
-                                  "Would you like to add random events for hydrating, taking a walk, etc?",textAlign: TextAlign.center,
-                                  style: TextStyle(fontSize: 15, color: Colors.redAccent[400],fontWeight: FontWeight.bold,),
-                                ),
-                                DropdownButton<String>(
-                                  value: _extraValues[0],
-                                  icon: Icon(Icons.expand_more),
-                                  iconSize: 24,
-                                  elevation: 16,
-                                  style: TextStyle(color: Colors.black),
-                                  onChanged: (String newValue) {
-                                    _extraValues[0] = newValue;
-                                    extraEventsNotice.add(_extraValues[0]);
-                                    setState(() {
-                                    });
-                                  },
-                                  items:
-                                  extraItems.map<DropdownMenuItem<String>>((String value){
-                                    return DropdownMenuItem<String>(
-                                      value: value,
-                                      child: Text(value),
-                                    );
-                                  }).toList(),
-                                ),
                               ],
                             )
                         )
@@ -235,7 +266,7 @@ class _GeneratingTasksState extends State<GeneratingTasks> {
                )
               ),
               Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: _tasks
+                children: _tasks,
                 ),
             ],),
         ]
