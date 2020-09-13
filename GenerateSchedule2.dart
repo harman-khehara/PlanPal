@@ -68,7 +68,7 @@ class _GenerateSchedule2State extends State<GenerateSchedule2> {
     while (i != newList.length) {
       if (!(unavailableTimes.contains(formatTimeOfDay(add(1, 0, startTime)))||
           unavailableTimes.contains(formatTimeOfDay(add(2, 0, startTime))) ||
-          unavailableTimes.contains(formatTimeOfDay(add(1, 0, startTime))))) {
+          unavailableTimes.contains(formatTimeOfDay(add(3, 0, startTime))))) {
         newList2.add(newList[i]);
         newList2.add(startTime);
         newList2.add(add(1, 0, startTime));
@@ -84,7 +84,11 @@ class _GenerateSchedule2State extends State<GenerateSchedule2> {
             newList2.add(newList[i]);
             newList2.add(startTime);
             newList2.add(add(1, 0, startTime));
-            startTime = add(1, 0, startTime);
+            newList2.add("Break");
+            newList2.add(startTime);
+            newList2.add(add(0, 30, startTime));
+            startTime = add(0, 30, startTime);
+            startTime = add(1, 30, startTime);
             i += 1;
         }
           else{
@@ -105,8 +109,7 @@ class _GenerateSchedule2State extends State<GenerateSchedule2> {
       else {
         if (unavailableTimes.contains(formatTimeOfDay(add(1, 0, startTime))) ||
             unavailableTimes.contains(formatTimeOfDay(add(2, 0, startTime))) ||
-            unavailableTimes.contains(formatTimeOfDay(add(3, 0, startTime))) ||
-            unavailableTimes.contains(formatTimeOfDay(add(4, 0, startTime)))) {
+            unavailableTimes.contains(formatTimeOfDay(add(3, 0, startTime)))) {
           startTime = add(1, 0, startTime);
           startTime2 = add(1, 0, startTime);
           while (unavailableTimes.contains(formatTimeOfDay(startTime)) ||
@@ -130,7 +133,11 @@ class _GenerateSchedule2State extends State<GenerateSchedule2> {
             newList2.add(newList[i]);
             newList2.add(startTime);
             newList2.add(add(1, 0, startTime));
-            startTime = add(1, 0, startTime);
+            newList2.add("Break");
+            newList2.add(startTime);
+            newList2.add(add(0, 30, startTime));
+            startTime = add(0, 30, startTime);
+            startTime = add(1, 30, startTime);
             i += 1;
           }
           else{
