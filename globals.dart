@@ -13,4 +13,7 @@ class Globals {
   static List customDayThursday = [];
   static List customDayFriday = [];
   static List customDaySaturday = [];
+  static List dropdownValue2 = [];
+  static List userTasks2 = [];
+  
 }
