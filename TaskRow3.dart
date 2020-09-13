@@ -116,18 +116,18 @@ class _TaskRow3State extends State<TaskRow3> {
                       style: TextStyle(color: Colors.black),
                       onChanged: (String newValue) {
                         _timeValues[0] = newValue;
-                        customTimes.add(_timeValues[0]);
-                        userTasks.add(textControllerName.text);
+                        customTimes?.add(int.parse(_timeValues[0]));
+                        userTasks?.add(textControllerName.text);
                         setState(() {
                         });
                       },
                       items:
-                      timeList.map<DropdownMenuItem<String>>((String value) {
+                      timeList?.map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
                           child: Text(value),
                         );
-                      }).toList(),
+                      })?.toList() ?? [],
                     ),
                   ))),
           Text("What days do you usually prefer for this activity?",style: TextStyle(color: Colors.blueAccent,fontFamily: 'Acme', fontSize: 17,)),

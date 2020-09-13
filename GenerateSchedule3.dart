@@ -113,8 +113,8 @@ class _GenerateSchedule3State extends State<GenerateSchedule3> {
         //Add tasks
         if (newTasks.length > 0) {
           for (var i = 0; i < newTasks.length; i++) {
-            if (newDaysSun.contains(userTasks[i]) == false) {
-              for (var t = 0; t < int.parse(newTimes[i][0]); t++) {
+            if (newDaysSun.contains(userTasks[i][0]) == true) {
+              for (var t = 0; t < 4; t++) {
                 if (positionSun.contains(0) == false) {
                   unavTimesSun[0] = "${unavTimesSun[0]}: ${newTasks[i]}";
                   positionSun.add(0);
@@ -173,8 +173,8 @@ class _GenerateSchedule3State extends State<GenerateSchedule3> {
         }
       } else {
         for (var i = 0; i < newTasks.length; i++) {
-          if (newDaysSun.contains(userTasks[i]) == false) {
-            for (var t = 0; t < int.parse(newTimes[i][0]); t++) {
+          if (newDaysSun.contains(userTasks[i][0]) == true) {
+            for (var t = 0; t < 4; t++) {
               if (positionSun.contains(0) == false) {
                 unavTimesSun[0] = "${unavTimesSun[0]}: ${newTasks[i]}";
                 positionSun.add(0);
@@ -245,7 +245,7 @@ class _GenerateSchedule3State extends State<GenerateSchedule3> {
         //Add tasks
         if (newTasks.length > 0) {
           for (var i = 0; i < newTasks.length; i++) {
-            if (newDaysMon.contains(userTasks[i]) == false) {
+            if (newDaysMon.contains(userTasks[i][0]) == true) {
               for (var t = 0; t < int.parse(newTimes[i][0]); t++) {
                 if (positionMon.contains(0) == false) {
                   unavTimesMon[0] = "${unavTimesMon[0]}: ${newTasks[i]}";
@@ -305,7 +305,7 @@ class _GenerateSchedule3State extends State<GenerateSchedule3> {
         }
       } else {
         for (var i = 0; i < newTasks.length; i++) {
-          if (newDaysMon.contains(userTasks[i]) == false) {
+          if (newDaysMon.contains(userTasks[i][0]) == true) {
             for (var t = 0; t < int.parse(newTimes[i][0]); t++) {
               if (positionMon.contains(0) == false) {
                 unavTimesMon[0] = "${unavTimesMon[0]}: ${newTasks[i]}";
@@ -376,7 +376,7 @@ class _GenerateSchedule3State extends State<GenerateSchedule3> {
         //Add tasks
         if (newTasks.length > 0) {
           for (var i = 0; i < newTasks.length; i++) {
-            if (newDaysTue.contains(userTasks[i]) == false) {
+            if (newDaysTue.contains(userTasks[i][0]) == true) {
               for (var t = 0; t < int.parse(newTimes[i][0]); t++) {
                 if (positionTue.contains(0) == false) {
                   unavTimesTue[0] = "${unavTimesTue[0]}: ${newTasks[i]}";
@@ -436,7 +436,7 @@ class _GenerateSchedule3State extends State<GenerateSchedule3> {
         }
       } else {
         for (var i = 0; i < newTasks.length; i++) {
-          if (newDaysTue.contains(userTasks[i]) == false) {
+          if (newDaysTue.contains(userTasks[i][0]) == true) {
             for (var t = 0; t < int.parse(newTimes[i][0]); t++) {
               if (positionTue.contains(0) == false) {
                 unavTimesTue[0] = "${unavTimesTue[0]}: ${newTasks[i]}";
@@ -507,7 +507,7 @@ class _GenerateSchedule3State extends State<GenerateSchedule3> {
         //Add tasks
         if (newTasks.length > 0) {
           for (var i = 0; i < newTasks.length; i++) {
-            if (newDaysWed.contains(userTasks[i]) == false) {
+            if (newDaysWed.contains(userTasks[i][0]) == true) {
               for (var t = 0; t < int.parse(newTimes[i][0]); t++) {
                 if (positionWed.contains(0) == false) {
                   unavTimesWed[0] = "${unavTimesWed[0]}: ${newTasks[i]}";
@@ -567,7 +567,7 @@ class _GenerateSchedule3State extends State<GenerateSchedule3> {
         }
       } else {
         for (var i = 0; i < newTasks.length; i++) {
-          if (newDaysWed.contains(userTasks[i]) == false) {
+          if (newDaysWed.contains(userTasks[i][0]) == true) {
             for (var t = 0; t < int.parse(newTimes[i][0]); t++) {
               if (positionWed.contains(0) == false) {
                 unavTimesWed[0] = "${unavTimesWed[0]}: ${newTasks[i]}";
@@ -638,7 +638,7 @@ class _GenerateSchedule3State extends State<GenerateSchedule3> {
         //Add tasks
         if (newTasks.length > 0) {
           for (var i = 0; i < newTasks.length; i++) {
-            if (newDaysThu.contains(userTasks[i]) == false) {
+            if (newDaysThu.contains(userTasks[i][0]) == true) {
               for (var t = 0; t < int.parse(newTimes[i][0]); t++) {
                 if (positionThu.contains(0) == false) {
                   unavTimesThu[0] = "${unavTimesThu[0]}: ${newTasks[i]}";
@@ -698,7 +698,7 @@ class _GenerateSchedule3State extends State<GenerateSchedule3> {
         }
       }else{
         for (var i = 0; i < newTasks.length; i++) {
-          if (newDaysThu.contains(userTasks[i]) == false) {
+          if (newDaysThu.contains(userTasks[i][0]) == true) {
             for (var t = 0; t < int.parse(newTimes[i][0]); t++) {
               if (positionThu.contains(0) == false) {
                 unavTimesThu[0] = "${unavTimesThu[0]}: ${newTasks[i]}";
@@ -769,7 +769,7 @@ class _GenerateSchedule3State extends State<GenerateSchedule3> {
         //Add tasks
         if (newTasks.length > 0) {
           for (var i = 0; i < newTasks.length; i++) {
-            if (newDaysFri.contains(userTasks[i]) == false) {
+            if (newDaysFri.contains(userTasks[i][0]) == true) {
               for (var t = 0; t < int.parse(newTimes[i][0]); t++) {
                 if (positionFri.contains(0) == false) {
                   unavTimesFri[0] = "${unavTimesFri[0]}: ${newTasks[i]}";
@@ -829,7 +829,7 @@ class _GenerateSchedule3State extends State<GenerateSchedule3> {
         }
       }else{
         for (var i = 0; i < newTasks.length; i++) {
-          if (newDaysFri.contains(userTasks[i]) == false) {
+          if (newDaysFri.contains(userTasks[i][0]) == true) {
             for (var t = 0; t < int.parse(newTimes[i][0]); t++) {
               if (positionFri.contains(0) == false) {
                 unavTimesFri[0] = "${unavTimesFri[0]}: ${newTasks[i]}";
@@ -900,7 +900,7 @@ class _GenerateSchedule3State extends State<GenerateSchedule3> {
         //Add tasks
         if (newTasks.length > 0) {
           for (var i = 0; i < newTasks.length; i++) {
-            if (newDaysSat.contains(userTasks[i]) == false) {
+            if (newDaysSat.contains(userTasks[i][0]) == true) {
               for (var t = 0; t < int.parse(newTimes[i][0]); t++) {
                 if (positionSat.contains(0) == false) {
                   unavTimesSat[0] = "${unavTimesSat[0]}: ${newTasks[i]}";
@@ -960,7 +960,7 @@ class _GenerateSchedule3State extends State<GenerateSchedule3> {
         }
       } else{
         for (var i = 0; i < newTasks.length; i++) {
-          if (newDaysSat.contains(userTasks[i]) == false) {
+          if (newDaysSat.contains(userTasks[i][0]) == true) {
             for (var t = 0; t < int.parse(newTimes[i][0]); t++) {
               if (positionSat.contains(0) == false) {
                 unavTimesSat[0] = "${unavTimesSat[0]}: ${newTasks[i]}";
