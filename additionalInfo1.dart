@@ -6,21 +6,21 @@ import 'package:intl/intl.dart';
 import 'package:smart_schedule_creator/CreateSchedule1.dart';
 import 'package:smart_schedule_creator/GenerateSchedule1.dart';
 
-class additionalInfo extends StatefulWidget {
+class additionalInfo1 extends StatefulWidget {
   final List tasks;
   final List times;
 
-  additionalInfo({
+  additionalInfo1({
     Key key,
     @required this.tasks,
     @required this.times,
   }) : super(key: key);
 
   @override
-  _additionalInfoState createState() => _additionalInfoState();
+  _additionalInfo1State createState() => _additionalInfo1State();
 }
 
-class _additionalInfoState extends State<additionalInfo> {
+class _additionalInfo1State extends State<additionalInfo1> {
   List unavailableTimes = [];
   DateTime _date = new DateTime.now();
   TimeOfDay _time = new TimeOfDay.now();
