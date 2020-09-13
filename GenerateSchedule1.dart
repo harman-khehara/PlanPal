@@ -121,7 +121,7 @@ class _GenerateSchedule1State extends State<GenerateSchedule1> {
 
   BoxDecoration myBoxDecoration() {
     return BoxDecoration(
-      border: Border.all(width: 3.0, color: Colors.redAccent[400]),
+      border: Border.all(width: 3.0, color: Colors.lightBlue[600]),
       borderRadius: BorderRadius.all(Radius.circular(24.0)),
     );
   }
@@ -148,7 +148,6 @@ class _GenerateSchedule1State extends State<GenerateSchedule1> {
     newList2 = getNewList2(
         newList, startTime, formatTime(unavailableTimes3), startTime);
     newList3 = formatTime(newList2);
-    print(newList3);
 
     return Scaffold(
         appBar: AppBar(
@@ -165,7 +164,7 @@ class _GenerateSchedule1State extends State<GenerateSchedule1> {
               icon: Icon(Icons.chevron_left, color: Colors.white),
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => additionalInfo()));
+                    MaterialPageRoute(builder: (context) => additionalInfo1()));
               },
             ),
             title: new Text(
@@ -211,7 +210,7 @@ class _GenerateSchedule1State extends State<GenerateSchedule1> {
                       padding: const EdgeInsets.all(16.0),
                       child: Material(
                         borderRadius: BorderRadius.circular(24.0),
-                        color: Colors.redAccent[400],
+                        color: Colors.lightBlue[600],
                         elevation: 14.0,
                         shadowColor: Colors.blueGrey,
                         child: Center(child:Text(
@@ -237,7 +236,7 @@ class _GenerateSchedule1State extends State<GenerateSchedule1> {
                             padding: const EdgeInsets.all(16.0),
                             child: Material(
                                 borderRadius: BorderRadius.circular(24.0),
-                                color: Colors.redAccent[400],
+                                color: Colors.lightBlue[600],
                                 elevation: 14.0,
                                 shadowColor: Colors.blueGrey,
                                 child: Center(
@@ -294,7 +293,7 @@ class _GenerateSchedule1State extends State<GenerateSchedule1> {
                                   //fontFamily: 'Acme',
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.redAccent[400],
+                                  color: Colors.lightBlue[600],
                                 )))))),
                       ])
                   ])))
