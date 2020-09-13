@@ -84,39 +84,39 @@ class _GeneratingTasksState extends State<GeneratingTasks> {
     List<TaskRow3> _tasks = new List.generate(count, (int i) => new TaskRow3());
 
     for (var i = 0; i < _tasks.length; i++) {
-      newTimes.add(_tasks[i].times);
+      newTimes?.add(_tasks[i].times);
     }
 
     for (var i = 0; i < _tasks.length; i++) {
-      newTasks.add(_tasks[i].tasks);
+      newTasks?.add(_tasks[i].tasks);
     }
 
     for (var i = 0; i < _tasks.length; i++) {
-      newDaysSun.add(_tasks[i].daysSun);
+      newDaysSun?.add(_tasks[i].daysSun);
     }
 
     for (var i = 0; i < _tasks.length; i++) {
-      newDaysMon.add(_tasks[i].daysMon);
+      newDaysMon?.add(_tasks[i].daysMon);
     }
 
     for (var i = 0; i < _tasks.length; i++) {
-      newDaysTue.add(_tasks[i].daysTue);
+      newDaysTue?.add(_tasks[i].daysTue);
     }
 
     for (var i = 0; i < _tasks.length; i++) {
-      newDaysWed.add(_tasks[i].daysWed);
+      newDaysWed?.add(_tasks[i].daysWed);
     }
 
     for (var i = 0; i < _tasks.length; i++) {
-      newDaysThu.add(_tasks[i].daysThu);
+      newDaysThu?.add(_tasks[i].daysThu);
     }
 
     for (var i = 0; i < _tasks.length; i++) {
-      newDaysFri.add(_tasks[i].daysFri);
+      newDaysFri?.add(_tasks[i].daysFri);
     }
 
     for (var i = 0; i < _tasks.length; i++) {
-      newDaysSat.add(_tasks[i].daysSat);
+      newDaysSat?.add(_tasks[i].daysSat);
     }
 
     int maxLimit (thisTime) {

@@ -157,7 +157,7 @@ class _TaskRow3State extends State<TaskRow3> {
               Checkbox(
                 value: _checkedMon,
                 onChanged: (bool value){
-                  customDayMonday.add(textControllerName.text);
+                  customDayMonday?.add(textControllerName.text);
                   setState(() {
                     _checkedMon=value;
                   });
@@ -166,7 +166,7 @@ class _TaskRow3State extends State<TaskRow3> {
               Checkbox(
                 value: _checkedTue,
                 onChanged: (bool value){
-                  customDayTuesday.add(textControllerName.text);
+                  customDayTuesday?.add(textControllerName.text);
                   setState(() {
                     _checkedTue=value;
                   });
@@ -175,7 +175,7 @@ class _TaskRow3State extends State<TaskRow3> {
               Checkbox(
                 value: _checkedWed,
                 onChanged: (bool value){
-                  customDayWednesday.add(textControllerName.text);
+                  customDayWednesday?.add(textControllerName.text);
                   setState(() {
                     _checkedWed=value;
                   });
@@ -184,7 +184,7 @@ class _TaskRow3State extends State<TaskRow3> {
               Checkbox(
                 value: _checkedThu,
                 onChanged: (bool value){
-                  customDayThursday.add(textControllerName.text);
+                  customDayThursday?.add(textControllerName.text);
                   setState(() {
                     _checkedThu=value;
                   });
@@ -193,7 +193,7 @@ class _TaskRow3State extends State<TaskRow3> {
               Checkbox(
                 value: _checkedFri,
                 onChanged: (bool value){
-                  customDayFriday.add(textControllerName.text);
+                  customDayFriday?.add(textControllerName.text);
                   setState(() {
                     _checkedFri=value;
                   });
@@ -202,7 +202,7 @@ class _TaskRow3State extends State<TaskRow3> {
               Checkbox(
                 value: _checkedSat,
                 onChanged: (bool value){
-                  customDaySaturday.add(textControllerName.text);
+                  customDaySaturday?.add(textControllerName.text);
                   setState(() {
                     _checkedSat=value;
                   });
