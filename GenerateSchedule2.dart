@@ -62,7 +62,7 @@ class _GenerateSchedule2State extends State<GenerateSchedule2> {
     return newList;
   }
 
-  List getNewList2(newList, startTime, unavailableTimes, startTime2) {
+  List getNewList2(newList, startTime, unavailableTimes, startTime2, startTime3) {
     List newList2 = [];
     var i = 0;
     while (i != newList.length) {
@@ -91,7 +91,7 @@ class _GenerateSchedule2State extends State<GenerateSchedule2> {
             startTime = add(0, 30, startTime);
             startTime = add(1, 30, startTime);
             i += 1;
-        }
+          }
           else{
             newList2.add("Break");
             newList2.add(startTime);
@@ -112,11 +112,14 @@ class _GenerateSchedule2State extends State<GenerateSchedule2> {
             unavailableTimes.contains(formatTimeOfDay(add(2, 0, startTime))) ||
             unavailableTimes.contains(formatTimeOfDay(add(3, 0, startTime)))) {
           startTime = add(1, 0, startTime);
-          startTime2 = add(3, 0, startTime);
+          startTime2 = add(1, 0, startTime);
+          startTime3 = add(1, 0, startTime);
           while (unavailableTimes.contains(formatTimeOfDay(startTime)) ||
-              unavailableTimes.contains(formatTimeOfDay(startTime2))) {
+              unavailableTimes.contains(formatTimeOfDay(startTime2)) ||
+              unavailableTimes.contains(formatTimeOfDay(startTime3))) {
             startTime = add(1, 0, startTime);
-            startTime2 = add(3, 0, startTime);
+            startTime2 = add(1, 0, startTime);
+            startTime3 = add(1, 0, startTime);
           }
         }
         newList2.add(newList[i]);
@@ -200,7 +203,7 @@ class _GenerateSchedule2State extends State<GenerateSchedule2> {
 
     newList = getNewList(tasks, times);
     newList2 = getNewList2(
-        newList, startTime, formatTime(unavailableTimes3), startTime);
+        newList, startTime, formatTime(unavailableTimes3), startTime, startTime);
     newList3 = formatTime(newList2);
     print(newList3);
 
