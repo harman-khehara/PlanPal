@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:smart_schedule_creator/globals.dart';
 
-List dropdownValue = Globals.dropdownValue;
-List userTasks = Globals.userTasks;
+List dropdownValue = Globals.dropdownValue2;
+List userTasks = Globals.userTasks2;
 
 class TaskRow extends StatefulWidget {
   List get time{
