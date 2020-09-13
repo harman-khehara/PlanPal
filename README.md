@@ -7,7 +7,7 @@
 
 <p align="center">The main features of this app include:</p>
 <p align="center">1. Auto-generate a personalized schedule that fits to the user’s demands and specifications.</p>
-<p align="center">2. Push notifications for reminders about taking a break, starting the next task, hydrating, etc. </p>
+<p align="center">2. Push notifications for reminders about taking a break, starting the next task, hydrating, etc. <i>(currently not implemented)</i></p>
     
 <p align="center">
 <img width ="150" height="300" src="homepage.gif">
@@ -58,7 +58,7 @@
   <a href="https://flutter.dev/docs/get-started/install">Flutter</a> website for more information.</p>
 
 <ol>
-  <li>Open up Command Prompt.</li>
+  <li>Open up Command Prompt on Windows or Terminal on macOS.</li>
   <li>Use the <code>cd</code> command to change the directory to the location of the <code>.dart</code> files for this app.</li>
   <li>Use the <code>flutter pub get</code> command to get all dependencies for the app.</li>
   <li>Use the <code>flutter run</code> command.</li>
