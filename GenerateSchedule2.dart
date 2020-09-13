@@ -113,13 +113,13 @@ class _GenerateSchedule2State extends State<GenerateSchedule2> {
             unavailableTimes.contains(formatTimeOfDay(add(3, 0, startTime)))) {
           startTime = add(1, 0, startTime);
           startTime2 = add(1, 0, startTime);
-          startTime3 = add(1, 0, startTime);
+          startTime3 = add(1, 0, startTime2);
           while (unavailableTimes.contains(formatTimeOfDay(startTime)) ||
               unavailableTimes.contains(formatTimeOfDay(startTime2)) ||
               unavailableTimes.contains(formatTimeOfDay(startTime3))) {
             startTime = add(1, 0, startTime);
             startTime2 = add(1, 0, startTime);
-            startTime3 = add(1, 0, startTime);
+            startTime3 = add(1, 0, startTime2);
           }
         }
         newList2.add(newList[i]);
