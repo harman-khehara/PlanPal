@@ -3,6 +3,7 @@ import 'package:smart_schedule_creator/CreateSchedule3.dart';
 import 'package:smart_schedule_creator/GeneratingTasks.dart';
 import 'package:smart_schedule_creator/homepage.dart';
 import 'package:smart_schedule_creator/UnavailableTimes.dart';
+import 'package:smart_schedule_creator/globals.dart';
 import 'package:smart_schedule_creator/TaskRow3.dart';
 
 class GenerateSchedule3 extends StatefulWidget {
@@ -23,16 +24,6 @@ class GenerateSchedule3 extends StatefulWidget {
   final Set positionThu;
   final Set positionFri;
   final Set positionSat;
-  final List newTimes;
-  final List newTasks;
-  final List newDaysSun;
-  final List newDaysMon;
-  final List newDaysTue;
-  final List newDaysWed;
-  final List newDaysThu;
-  final List newDaysFri;
-  final List newDaysSat;
-
 
   GenerateSchedule3({
     Key key,
@@ -52,15 +43,6 @@ class GenerateSchedule3 extends StatefulWidget {
     @required this.positionThu,
     @required this.positionFri,
     @required this.positionSat,
-    @required this.newTimes,
-    @required this.newTasks,
-    @required this.newDaysSun,
-    @required this.newDaysMon,
-    @required this.newDaysTue,
-    @required this.newDaysWed,
-    @required this.newDaysThu,
-    @required this.newDaysFri,
-    @required this.newDaysSat,
 
   }) : super(key: key);
 
@@ -92,17 +74,8 @@ class _GenerateSchedule3State extends State<GenerateSchedule3> {
     Set positionThu = widget.positionThu;
     Set positionFri = widget.positionFri;
     Set positionSat = widget.positionSat;
-    List newTimes = widget.newTimes;
-    List newDaysSun = widget.newDaysSun;
-    List newDaysMon = widget.newDaysMon;
-    List newDaysTue = widget.newDaysTue;
-    List newDaysWed = widget.newDaysWed;
-    List newDaysThu = widget.newDaysThu;
-    List newDaysFri = widget.newDaysFri;
-    List newDaysSat = widget.newDaysSat;
-    List newTasks = widget.newTasks;
 
-    /// FUNCTIONS TO DETERMINE UNAVAILABILITY TIMES, ADD TASKS, AND REMINDERS
+    /// FUNCTIONS TO DETERMINE UNAVAILABILITY TIMES and ADD TASKS
     addTasksSunday(unavailabilityTimes) {
       //Determine unavailability
       if (positionSun.isNotEmpty == true) {
@@ -111,56 +84,56 @@ class _GenerateSchedule3State extends State<GenerateSchedule3> {
           "${unavTimesSun[positionSun.elementAt(i)]}: Unavailable";
         }
         //Add tasks
-        if (newTasks.length > 0) {
-          for (var i = 0; i < newTasks.length; i++) {
-              if (newDaysSun[i][0] == newTasks[i]) {
-                for (var t = 0; t < newTimes[i][0]; t++) {
+        if (Globals.customTasks.length > 0) {
+          for (var i = 0; i < Globals.customTasks.length; i++) {
+              if (Globals.customDaySunday.isNotEmpty && Globals.customDaySunday.contains(Globals.customTasks[i]) == true) {
+                for (var t = 0; t < Globals.customTimes[i]; t++) {
                   if (positionSun.contains(0) == false && unavTimesSun.length > 0) {
-                    unavTimesSun[0] = "${unavTimesSun[0]}: ${newTasks[i][i]}";
+                    unavTimesSun[0] = "${unavTimesSun[0]}: ${Globals.customTasks[i]}";
                     positionSun.add(0);
                   }
                   else if (positionSun.contains(1) == false && unavTimesSun.length >= 1) {
-                    unavTimesSun[1] = "${unavTimesSun[1]}: ${newTasks[i][i]}";
+                    unavTimesSun[1] = "${unavTimesSun[1]}: ${Globals.customTasks[i]}";
                     positionSun.add(1);
                   }
                   else if (positionSun.contains(2) == false && unavTimesSun.length >= 2) {
-                    unavTimesSun[2] = "${unavTimesSun[2]}: ${newTasks[i][i]}";
+                    unavTimesSun[2] = "${unavTimesSun[2]}: ${Globals.customTasks[i]}";
                     positionSun.add(2);
                   }
                   else if (positionSun.contains(3) == false && unavTimesSun.length >= 3) {
-                    unavTimesSun[3] = "${unavTimesSun[3]}: ${newTasks[i][i]}";
+                    unavTimesSun[3] = "${unavTimesSun[3]}: ${Globals.customTasks[i]}";
                     positionSun.add(3);
                   }
                   else if (positionSun.contains(4) == false && unavTimesSun.length >= 4) {
-                    unavTimesSun[4] = "${unavTimesSun[4]}: ${newTasks[i][i]}";
+                    unavTimesSun[4] = "${unavTimesSun[4]}: ${Globals.customTasks[i]}";
                     positionSun.add(4);
                   }
                   else if (positionSun.contains(5) == false && unavTimesSun.length >= 5) {
-                    unavTimesSun[5] = "${unavTimesSun[5]}: ${newTasks[i][i]}";
+                    unavTimesSun[5] = "${unavTimesSun[5]}: ${Globals.customTasks[i]}";
                     positionSun.add(5);
                   }
                   else if (positionSun.contains(6) == false && unavTimesSun.length >= 6) {
-                    unavTimesSun[6] = "${unavTimesSun[6]}: ${newTasks[i][i]}";
+                    unavTimesSun[6] = "${unavTimesSun[6]}: ${Globals.customTasks[i]}";
                     positionSun.add(6);
                   }
                   else if (positionSun.contains(7) == false && unavTimesSun.length >= 7) {
-                    unavTimesSun[7] = "${unavTimesSun[7]}: ${newTasks[i][i]}";
+                    unavTimesSun[7] = "${unavTimesSun[7]}: ${Globals.customTasks[i]}";
                     positionSun.add(7);
                   }
                   else if (positionSun.contains(8) == false && unavTimesSun.length >= 8) {
-                    unavTimesSun[8] = "${unavTimesSun[8]}: ${newTasks[i][i]}";
+                    unavTimesSun[8] = "${unavTimesSun[8]}: ${Globals.customTasks[i]}";
                     positionSun.add(8);
                   }
                   else if (positionSun.contains(9) == false && unavTimesSun.length >= 9) {
-                    unavTimesSun[9] = "${unavTimesSun[9]}: ${newTasks[i][i]}";
+                    unavTimesSun[9] = "${unavTimesSun[9]}: ${Globals.customTasks[i]}";
                     positionSun.add(9);
                   }
                   else if (positionSun.contains(10) == false && unavTimesSun.length >= 10) {
-                    unavTimesSun[10] = "${unavTimesSun[10]}: ${newTasks[i][i]}";
+                    unavTimesSun[10] = "${unavTimesSun[10]}: ${Globals.customTasks[i]}";
                     positionSun.add(10);
                   }
                   else if (positionSun.contains(11) == false && unavTimesSun.length == 11) {
-                    unavTimesSun[11] = "${unavTimesSun[11]}: ${newTasks[i][i]}";
+                    unavTimesSun[11] = "${unavTimesSun[11]}: ${Globals.customTasks[i]}";
                     positionSun.add(11);
                   }
                 }
@@ -168,55 +141,55 @@ class _GenerateSchedule3State extends State<GenerateSchedule3> {
           }
         }
       } else {
-        for (var i = 0; i < newTasks.length; i++) {
-            if(newDaysSun[i][0] == newTasks[i]){
-              for (var t = 0; t < newTimes[i][0]; t++) {
+        for (var i = 0; i < Globals.customTasks.length; i++) {
+          if(Globals.customDaySunday.isNotEmpty && Globals.customDaySunday.contains(Globals.customTasks[i]) == true){
+              for (var t = 0; t < Globals.customTimes[i]; t++) {
                 if (positionSun.contains(0) == false && unavTimesSun.length > 0) {
-                  unavTimesSun[0] = "${unavTimesSun[0]}: ${newTasks[i][i]}";
+                  unavTimesSun[0] = "${unavTimesSun[0]}: ${Globals.customTasks[i]}";
                   positionSun.add(0);
                 }
                 else if (positionSun.contains(1) == false && unavTimesSun.length >= 1) {
-                  unavTimesSun[1] = "${unavTimesSun[1]}: ${newTasks[i][i]}";
+                  unavTimesSun[1] = "${unavTimesSun[1]}: ${Globals.customTasks[i]}";
                   positionSun.add(1);
                 }
                 else if (positionSun.contains(2) == false && unavTimesSun.length >= 2) {
-                  unavTimesSun[2] = "${unavTimesSun[2]}: ${newTasks[i][i]}";
+                  unavTimesSun[2] = "${unavTimesSun[2]}: ${Globals.customTasks[i]}";
                   positionSun.add(2);
                 }
                 else if (positionSun.contains(3) == false && unavTimesSun.length >= 3) {
-                  unavTimesSun[3] = "${unavTimesSun[3]}: ${newTasks[i][i]}";
+                  unavTimesSun[3] = "${unavTimesSun[3]}: ${Globals.customTasks[i]}";
                   positionSun.add(3);
                 }
                 else if (positionSun.contains(4) == false && unavTimesSun.length >= 4) {
-                  unavTimesSun[4] = "${unavTimesSun[4]}: ${newTasks[i][i]}";
+                  unavTimesSun[4] = "${unavTimesSun[4]}: ${Globals.customTasks[i]}";
                   positionSun.add(4);
                 }
                 else if (positionSun.contains(5) == false && unavTimesSun.length >= 5) {
-                  unavTimesSun[5] = "${unavTimesSun[5]}: ${newTasks[i][i]}";
+                  unavTimesSun[5] = "${unavTimesSun[5]}: ${Globals.customTasks[i]}";
                   positionSun.add(5);
                 }
                 else if (positionSun.contains(6) == false && unavTimesSun.length >= 6) {
-                  unavTimesSun[6] = "${unavTimesSun[6]}: ${newTasks[i][i]}";
+                  unavTimesSun[6] = "${unavTimesSun[6]}: ${Globals.customTasks[i]}";
                   positionSun.add(6);
                 }
                 else if (positionSun.contains(7) == false && unavTimesSun.length >= 7) {
-                  unavTimesSun[7] = "${unavTimesSun[7]}: ${newTasks[i][i]}";
+                  unavTimesSun[7] = "${unavTimesSun[7]}: ${Globals.customTasks[i]}";
                   positionSun.add(7);
                 }
                 else if (positionSun.contains(8) == false && unavTimesSun.length >= 8) {
-                  unavTimesSun[8] = "${unavTimesSun[8]}: ${newTasks[i][i]}";
+                  unavTimesSun[8] = "${unavTimesSun[8]}: ${Globals.customTasks[i]}";
                   positionSun.add(8);
                 }
                 else if (positionSun.contains(9) == false && unavTimesSun.length >= 9) {
-                  unavTimesSun[9] = "${unavTimesSun[9]}: ${newTasks[i][i]}";
+                  unavTimesSun[9] = "${unavTimesSun[9]}: ${Globals.customTasks[i]}";
                   positionSun.add(9);
                 }
                 else if (positionSun.contains(10) == false && unavTimesSun.length >= 10) {
-                  unavTimesSun[10] = "${unavTimesSun[10]}: ${newTasks[i][i]}";
+                  unavTimesSun[10] = "${unavTimesSun[10]}: ${Globals.customTasks[i]}";
                   positionSun.add(10);
                 }
                 else if (positionSun.contains(11) == false && unavTimesSun.length == 11) {
-                  unavTimesSun[11] = "${unavTimesSun[11]}: ${newTasks[i][i]}";
+                  unavTimesSun[11] = "${unavTimesSun[11]}: ${Globals.customTasks[i]}";
                   positionSun.add(11);
                 }
               }
@@ -235,56 +208,56 @@ class _GenerateSchedule3State extends State<GenerateSchedule3> {
           "${unavTimesMon[positionMon.elementAt(i)]}: Unavailable";
         }
         //Add tasks
-        if (newTasks.length > 0) {
-          for (var i = 0; i < newTasks.length; i++) {
-              if(newDaysMon[i][0] == newTasks[i]){
-                for (var t = 0; t < newTimes[i][0]; t++) {
+        if (Globals.customTasks.length > 0) {
+          for (var i = 0; i < Globals.customTasks.length; i++) {
+            if(Globals.customDayMonday.isNotEmpty && Globals.customDayMonday.contains(Globals.customTasks[i]) == true){
+                for (var t = 0; t < Globals.customTimes[i]; t++) {
                   if (positionMon.contains(0) == false && unavTimesMon.length > 0) {
-                    unavTimesMon[0] = "${unavTimesMon[0]}: ${newTasks[i][i]}";
+                    unavTimesMon[0] = "${unavTimesMon[0]}: ${Globals.customTasks[i]}";
                     positionMon.add(0);
                   }
                   else if (positionMon.contains(1) == false && unavTimesMon.length >= 1) {
-                    unavTimesMon[1] = "${unavTimesMon[1]}: ${newTasks[i][i]}";
+                    unavTimesMon[1] = "${unavTimesMon[1]}: ${Globals.customTasks[i]}";
                     positionMon.add(1);
                   }
                   else if (positionMon.contains(2) == false && unavTimesMon.length >= 2) {
-                    unavTimesMon[2] = "${unavTimesMon[2]}: ${newTasks[i][i]}";
+                    unavTimesMon[2] = "${unavTimesMon[2]}: ${Globals.customTasks[i]}";
                     positionMon.add(2);
                   }
                   else if (positionMon.contains(3) == false && unavTimesMon.length >= 3) {
-                    unavTimesMon[3] = "${unavTimesMon[3]}: ${newTasks[i][i]}";
+                    unavTimesMon[3] = "${unavTimesMon[3]}: ${Globals.customTasks[i]}";
                     positionMon.add(3);
                   }
                   else if (positionMon.contains(4) == false && unavTimesMon.length >= 4) {
-                    unavTimesMon[4] = "${unavTimesMon[4]}: ${newTasks[i][i]}";
+                    unavTimesMon[4] = "${unavTimesMon[4]}: ${Globals.customTasks[i]}";
                     positionMon.add(4);
                   }
                   else if (positionMon.contains(5) == false && unavTimesMon.length >= 5) {
-                    unavTimesMon[5] = "${unavTimesMon[5]}: ${newTasks[i][i]}";
+                    unavTimesMon[5] = "${unavTimesMon[5]}: ${Globals.customTasks[i]}";
                     positionMon.add(5);
                   }
                   else if (positionMon.contains(6) == false && unavTimesMon.length >= 6) {
-                    unavTimesMon[6] = "${unavTimesMon[6]}: ${newTasks[i][i]}";
+                    unavTimesMon[6] = "${unavTimesMon[6]}: ${Globals.customTasks[i]}";
                     positionMon.add(6);
                   }
                   else if (positionMon.contains(7) == false && unavTimesMon.length >= 7) {
-                    unavTimesMon[7] = "${unavTimesMon[7]}: ${newTasks[i][i]}";
+                    unavTimesMon[7] = "${unavTimesMon[7]}: ${Globals.customTasks[i]}";
                     positionMon.add(7);
                   }
                   else if (positionMon.contains(8) == false && unavTimesMon.length >= 8) {
-                    unavTimesMon[8] = "${unavTimesMon[8]}: ${newTasks[i][i]}";
+                    unavTimesMon[8] = "${unavTimesMon[8]}: ${Globals.customTasks[i]}";
                     positionMon.add(8);
                   }
                   else if (positionMon.contains(9) == false && unavTimesMon.length >= 9) {
-                    unavTimesMon[9] = "${unavTimesMon[9]}: ${newTasks[i][i]}";
+                    unavTimesMon[9] = "${unavTimesMon[9]}: ${Globals.customTasks[i]}";
                     positionMon.add(9);
                   }
                   else if (positionMon.contains(10) == false && unavTimesMon.length >= 10) {
-                    unavTimesMon[10] = "${unavTimesMon[10]}: ${newTasks[i][i]}";
+                    unavTimesMon[10] = "${unavTimesMon[10]}: ${Globals.customTasks[i]}";
                     positionMon.add(10);
                   }
                   else if (positionMon.contains(11) == false && unavTimesMon.length == 11) {
-                    unavTimesMon[11] = "${unavTimesMon[11]}: ${newTasks[i][i]}";
+                    unavTimesMon[11] = "${unavTimesMon[11]}: ${Globals.customTasks[i]}";
                     positionMon.add(11);
                   }
                 }
@@ -292,67 +265,55 @@ class _GenerateSchedule3State extends State<GenerateSchedule3> {
           }
         }
       } else {
-        for (var i = 0; i < newTasks.length; i++) {
-              if(newDaysMon[i][0] == newTasks[i]){
-                for (var t = 0; t < newTimes[i][0]; t++) {
-                  if (positionMon.contains(0) == false &&
-                      unavTimesMon.length > 0) {
-                    unavTimesMon[0] = "${unavTimesMon[0]}: ${newTasks[i][i]}";
+        for (var i = 0; i < Globals.customTasks.length; i++) {
+          if(Globals.customDayMonday.isNotEmpty && Globals.customDayMonday.contains(Globals.customTasks[i]) == true){
+                for (var t = 0; t < Globals.customTimes[i]; t++) {
+                  if (positionMon.contains(0) == false && unavTimesMon.length > 0) {
+                    unavTimesMon[0] = "${unavTimesMon[0]}: ${Globals.customTasks[i]}";
                     positionMon.add(0);
                   }
-                  else if (positionMon.contains(1) == false &&
-                      unavTimesMon.length >= 1) {
-                    unavTimesMon[1] = "${unavTimesMon[1]}: ${newTasks[i][i]}";
+                  else if (positionMon.contains(1) == false && unavTimesMon.length >= 1) {
+                    unavTimesMon[1] = "${unavTimesMon[1]}: ${Globals.customTasks[i]}";
                     positionMon.add(1);
                   }
-                  else if (positionMon.contains(2) == false &&
-                      unavTimesMon.length >= 2) {
-                    unavTimesMon[2] = "${unavTimesMon[2]}: ${newTasks[i][i]}";
+                  else if (positionMon.contains(2) == false && unavTimesMon.length >= 2) {
+                    unavTimesMon[2] = "${unavTimesMon[2]}: ${Globals.customTasks[i]}";
                     positionMon.add(2);
                   }
-                  else if (positionMon.contains(3) == false &&
-                      unavTimesMon.length >= 3) {
-                    unavTimesMon[3] = "${unavTimesMon[3]}: ${newTasks[i][i]}";
+                  else if (positionMon.contains(3) == false && unavTimesMon.length >= 3) {
+                    unavTimesMon[3] = "${unavTimesMon[3]}: ${Globals.customTasks[i]}";
                     positionMon.add(3);
                   }
-                  else if (positionMon.contains(4) == false &&
-                      unavTimesMon.length >= 4) {
-                    unavTimesMon[4] = "${unavTimesMon[4]}: ${newTasks[i][i]}";
+                  else if (positionMon.contains(4) == false && unavTimesMon.length >= 4) {
+                    unavTimesMon[4] = "${unavTimesMon[4]}: ${Globals.customTasks[i]}";
                     positionMon.add(4);
                   }
-                  else if (positionMon.contains(5) == false &&
-                      unavTimesMon.length >= 5) {
-                    unavTimesMon[5] = "${unavTimesMon[5]}: ${newTasks[i][i]}";
+                  else if (positionMon.contains(5) == false && unavTimesMon.length >= 5) {
+                    unavTimesMon[5] = "${unavTimesMon[5]}: ${Globals.customTasks[i]}";
                     positionMon.add(5);
                   }
-                  else if (positionMon.contains(6) == false &&
-                      unavTimesMon.length >= 6) {
-                    unavTimesMon[6] = "${unavTimesMon[6]}: ${newTasks[i][i]}";
+                  else if (positionMon.contains(6) == false && unavTimesMon.length >= 6) {
+                    unavTimesMon[6] = "${unavTimesMon[6]}: ${Globals.customTasks[i]}";
                     positionMon.add(6);
                   }
-                  else if (positionMon.contains(7) == false &&
-                      unavTimesMon.length >= 7) {
-                    unavTimesMon[7] = "${unavTimesMon[7]}: ${newTasks[i][i]}";
+                  else if (positionMon.contains(7) == false && unavTimesMon.length >= 7) {
+                    unavTimesMon[7] = "${unavTimesMon[7]}: ${Globals.customTasks[i]}";
                     positionMon.add(7);
                   }
-                  else if (positionMon.contains(8) == false &&
-                      unavTimesMon.length >= 8) {
-                    unavTimesMon[8] = "${unavTimesMon[8]}: ${newTasks[i][i]}";
+                  else if (positionMon.contains(8) == false && unavTimesMon.length >= 8) {
+                    unavTimesMon[8] = "${unavTimesMon[8]}: ${Globals.customTasks[i]}";
                     positionMon.add(8);
                   }
-                  else if (positionMon.contains(9) == false &&
-                      unavTimesMon.length >= 9) {
-                    unavTimesMon[9] = "${unavTimesMon[9]}: ${newTasks[i][i]}";
+                  else if (positionMon.contains(9) == false && unavTimesMon.length >= 9) {
+                    unavTimesMon[9] = "${unavTimesMon[9]}: ${Globals.customTasks[i]}";
                     positionMon.add(9);
                   }
-                  else if (positionMon.contains(10) == false &&
-                      unavTimesMon.length >= 10) {
-                    unavTimesMon[10] = "${unavTimesMon[10]}: ${newTasks[i][i]}";
+                  else if (positionMon.contains(10) == false && unavTimesMon.length >= 10) {
+                    unavTimesMon[10] = "${unavTimesMon[10]}: ${Globals.customTasks[i]}";
                     positionMon.add(10);
                   }
-                  else if (positionMon.contains(11) == false &&
-                      unavTimesMon.length == 11) {
-                    unavTimesMon[11] = "${unavTimesMon[11]}: ${newTasks[i][i]}";
+                  else if (positionMon.contains(11) == false && unavTimesMon.length == 11) {
+                    unavTimesMon[11] = "${unavTimesMon[11]}: ${Globals.customTasks[i]}";
                     positionMon.add(11);
                   }
                 }
@@ -370,56 +331,56 @@ class _GenerateSchedule3State extends State<GenerateSchedule3> {
           "${unavTimesTue[positionTue.elementAt(i)]}: Unavailable";
         }
         //Add tasks
-        if (newTasks.length > 0) {
-          for (var i = 0; i < newTasks.length; i++) {
-            if (newDaysTue[i][0] == newTasks[i]) {
-              for (var t = 0; t < newTimes[i][0]; t++) {
+        if (Globals.customTasks.length > 0) {
+          for (var i = 0; i < Globals.customTasks.length; i++) {
+            if (Globals.customDayTuesday.isNotEmpty && Globals.customDayTuesday.contains(Globals.customTasks[i]) == true) {
+              for (var t = 0; t < Globals.customTimes[i]; t++) {
                 if (positionTue.contains(0) == false && unavTimesTue.length > 0) {
-                  unavTimesTue[0] = "${unavTimesTue[0]}: ${newTasks[i][i]}";
+                  unavTimesTue[0] = "${unavTimesTue[0]}: ${Globals.customTasks[i]}";
                   positionTue.add(0);
                 }
                 else if (positionTue.contains(1) == false && unavTimesTue.length >= 1) {
-                  unavTimesTue[1] = "${unavTimesTue[1]}: ${newTasks[i][i]}";
+                  unavTimesTue[1] = "${unavTimesTue[1]}: ${Globals.customTasks[i]}";
                   positionTue.add(1);
                 }
                 else if (positionTue.contains(2) == false && unavTimesTue.length >= 2) {
-                  unavTimesTue[2] = "${unavTimesTue[2]}: ${newTasks[i][i]}";
+                  unavTimesTue[2] = "${unavTimesTue[2]}: ${Globals.customTasks[i]}";
                   positionTue.add(2);
                 }
                 else if (positionTue.contains(3) == false && unavTimesTue.length >= 3) {
-                  unavTimesTue[3] = "${unavTimesTue[3]}: ${newTasks[i][i]}";
+                  unavTimesTue[3] = "${unavTimesTue[3]}: ${Globals.customTasks[i]}";
                   positionTue.add(3);
                 }
                 else if (positionTue.contains(4) == false && unavTimesTue.length >= 4) {
-                  unavTimesTue[4] = "${unavTimesTue[4]}: ${newTasks[i][i]}";
+                  unavTimesTue[4] = "${unavTimesTue[4]}: ${Globals.customTasks[i]}";
                   positionTue.add(4);
                 }
                 else if (positionTue.contains(5) == false && unavTimesTue.length >= 5) {
-                  unavTimesTue[5] = "${unavTimesTue[5]}: ${newTasks[i][i]}";
+                  unavTimesTue[5] = "${unavTimesTue[5]}: ${Globals.customTasks[i]}";
                   positionTue.add(5);
                 }
                 else if (positionTue.contains(6) == false && unavTimesTue.length >= 6) {
-                  unavTimesTue[6] = "${unavTimesTue[6]}: ${newTasks[i][i]}";
+                  unavTimesTue[6] = "${unavTimesTue[6]}: ${Globals.customTasks[i]}";
                   positionTue.add(6);
                 }
                 else if (positionTue.contains(7) == false && unavTimesTue.length >= 7) {
-                  unavTimesTue[7] = "${unavTimesTue[7]}: ${newTasks[i][i]}";
+                  unavTimesTue[7] = "${unavTimesTue[7]}: ${Globals.customTasks[i]}";
                   positionTue.add(7);
                 }
                 else if (positionTue.contains(8) == false && unavTimesTue.length >= 8) {
-                  unavTimesTue[8] = "${unavTimesTue[8]}: ${newTasks[i][i]}";
+                  unavTimesTue[8] = "${unavTimesTue[8]}: ${Globals.customTasks[i]}";
                   positionTue.add(8);
                 }
                 else if (positionTue.contains(9) == false && unavTimesTue.length >= 9) {
-                  unavTimesTue[9] = "${unavTimesTue[9]}: ${newTasks[i][i]}";
+                  unavTimesTue[9] = "${unavTimesTue[9]}: ${Globals.customTasks[i]}";
                   positionTue.add(9);
                 }
                 else if (positionTue.contains(10) == false && unavTimesTue.length >= 10) {
-                  unavTimesTue[10] = "${unavTimesTue[10]}: ${newTasks[i][i]}";
+                  unavTimesTue[10] = "${unavTimesTue[10]}: ${Globals.customTasks[i]}";
                   positionTue.add(10);
                 }
                 else if (positionTue.contains(11) == false && unavTimesTue.length == 11) {
-                  unavTimesTue[11] = "${unavTimesTue[11]}: ${newTasks[i][i]}";
+                  unavTimesTue[11] = "${unavTimesTue[11]}: ${Globals.customTasks[i]}";
                   positionTue.add(11);
                 }
               }
@@ -427,55 +388,55 @@ class _GenerateSchedule3State extends State<GenerateSchedule3> {
           }
         }
       } else {
-        for (var i = 0; i < newTasks.length; i++) {
-          if (newDaysTue[i][0] == newTasks[i]) {
-            for (var t = 0; t < newTimes[i][0]; t++) {
+        for (var i = 0; i < Globals.customTasks.length; i++) {
+          if (Globals.customDayTuesday.isNotEmpty && Globals.customDayTuesday.contains(Globals.customTasks[i]) == true) {
+            for (var t = 0; t < Globals.customTimes[i]; t++) {
               if (positionTue.contains(0) == false && unavTimesTue.length > 0) {
-                unavTimesTue[0] = "${unavTimesTue[0]}: ${newTasks[i][i]}";
+                unavTimesTue[0] = "${unavTimesTue[0]}: ${Globals.customTasks[i]}";
                 positionTue.add(0);
               }
               else if (positionTue.contains(1) == false && unavTimesTue.length >= 1) {
-                unavTimesTue[1] = "${unavTimesTue[1]}: ${newTasks[i][i]}";
+                unavTimesTue[1] = "${unavTimesTue[1]}: ${Globals.customTasks[i]}";
                 positionTue.add(1);
               }
               else if (positionTue.contains(2) == false && unavTimesTue.length >= 2) {
-                unavTimesTue[2] = "${unavTimesTue[2]}: ${newTasks[i][i]}";
+                unavTimesTue[2] = "${unavTimesTue[2]}: ${Globals.customTasks[i]}";
                 positionTue.add(2);
               }
               else if (positionTue.contains(3) == false && unavTimesTue.length >= 3) {
-                unavTimesTue[3] = "${unavTimesTue[3]}: ${newTasks[i][i]}";
+                unavTimesTue[3] = "${unavTimesTue[3]}: ${Globals.customTasks[i]}";
                 positionTue.add(3);
               }
               else if (positionTue.contains(4) == false && unavTimesTue.length >= 4) {
-                unavTimesTue[4] = "${unavTimesTue[4]}: ${newTasks[i][i]}";
+                unavTimesTue[4] = "${unavTimesTue[4]}: ${Globals.customTasks[i]}";
                 positionTue.add(4);
               }
               else if (positionTue.contains(5) == false && unavTimesTue.length >= 5) {
-                unavTimesTue[5] = "${unavTimesTue[5]}: ${newTasks[i][i]}";
+                unavTimesTue[5] = "${unavTimesTue[5]}: ${Globals.customTasks[i]}";
                 positionTue.add(5);
               }
               else if (positionTue.contains(6) == false && unavTimesTue.length >= 6) {
-                unavTimesTue[6] = "${unavTimesTue[6]}: ${newTasks[i][i]}";
+                unavTimesTue[6] = "${unavTimesTue[6]}: ${Globals.customTasks[i]}";
                 positionTue.add(6);
               }
               else if (positionTue.contains(7) == false && unavTimesTue.length >= 7) {
-                unavTimesTue[7] = "${unavTimesTue[7]}: ${newTasks[i][i]}";
+                unavTimesTue[7] = "${unavTimesTue[7]}: ${Globals.customTasks[i]}";
                 positionTue.add(7);
               }
               else if (positionTue.contains(8) == false && unavTimesTue.length >= 8) {
-                unavTimesTue[8] = "${unavTimesTue[8]}: ${newTasks[i][i]}";
+                unavTimesTue[8] = "${unavTimesTue[8]}: ${Globals.customTasks[i]}";
                 positionTue.add(8);
               }
               else if (positionTue.contains(9) == false && unavTimesTue.length >= 9) {
-                unavTimesTue[9] = "${unavTimesTue[9]}: ${newTasks[i][i]}";
+                unavTimesTue[9] = "${unavTimesTue[9]}: ${Globals.customTasks[i]}";
                 positionTue.add(9);
               }
               else if (positionTue.contains(10) == false && unavTimesTue.length >= 10) {
-                unavTimesTue[10] = "${unavTimesTue[10]}: ${newTasks[i][i]}";
+                unavTimesTue[10] = "${unavTimesTue[10]}: ${Globals.customTasks[i]}";
                 positionTue.add(10);
               }
               else if (positionTue.contains(11) == false && unavTimesTue.length == 11) {
-                unavTimesTue[11] = "${unavTimesTue[11]}: ${newTasks[i][i]}";
+                unavTimesTue[11] = "${unavTimesTue[11]}: ${Globals.customTasks[i]}";
                 positionTue.add(11);
               }
             }
@@ -493,56 +454,56 @@ class _GenerateSchedule3State extends State<GenerateSchedule3> {
           "${unavTimesWed[positionWed.elementAt(i)]}: Unavailable";
         }
         //Add tasks
-        if (newTasks.length > 0) {
-          for (var i = 0; i < newTasks.length; i++) {
-            if (newDaysWed[i][0] == newTasks[i]) {
-              for (var t = 0; t < newTimes[i][0]; t++) {
+        if (Globals.customTasks.length > 0) {
+          for (var i = 0; i < Globals.customTasks.length; i++) {
+            if (Globals.customDayWednesday.isNotEmpty && Globals.customDayWednesday.contains(Globals.customTasks[i]) == true) {
+              for (var t = 0; t < Globals.customTimes[i]; t++) {
                 if (positionWed.contains(0) == false && unavTimesWed.length > 0) {
-                  unavTimesWed[0] = "${unavTimesWed[0]}: ${newTasks[i][i]}";
+                  unavTimesWed[0] = "${unavTimesWed[0]}: ${Globals.customTasks[i]}";
                   positionWed.add(0);
                 }
                 else if (positionWed.contains(1) == false && unavTimesWed.length >= 1) {
-                  unavTimesWed[1] = "${unavTimesWed[1]}: ${newTasks[i][i]}";
+                  unavTimesWed[1] = "${unavTimesWed[1]}: ${Globals.customTasks[i]}";
                   positionWed.add(1);
                 }
                 else if (positionWed.contains(2) == false && unavTimesWed.length >= 2) {
-                  unavTimesWed[2] = "${unavTimesWed[2]}: ${newTasks[i][i]}";
+                  unavTimesWed[2] = "${unavTimesWed[2]}: ${Globals.customTasks[i]}";
                   positionWed.add(2);
                 }
                 else if (positionWed.contains(3) == false && unavTimesWed.length >= 3) {
-                  unavTimesWed[3] = "${unavTimesWed[3]}: ${newTasks[i][i]}";
+                  unavTimesWed[3] = "${unavTimesWed[3]}: ${Globals.customTasks[i]}";
                   positionWed.add(3);
                 }
                 else if (positionWed.contains(4) == false && unavTimesWed.length >= 4) {
-                  unavTimesWed[4] = "${unavTimesWed[4]}: ${newTasks[i][i]}";
+                  unavTimesWed[4] = "${unavTimesWed[4]}: ${Globals.customTasks[i]}";
                   positionWed.add(4);
                 }
                 else if (positionWed.contains(5) == false && unavTimesWed.length >= 5) {
-                  unavTimesWed[5] = "${unavTimesWed[5]}: ${newTasks[i][i]}";
+                  unavTimesWed[5] = "${unavTimesWed[5]}: ${Globals.customTasks[i]}";
                   positionWed.add(5);
                 }
                 else if (positionWed.contains(6) == false && unavTimesWed.length >= 6) {
-                  unavTimesWed[6] = "${unavTimesWed[6]}: ${newTasks[i][i]}";
+                  unavTimesWed[6] = "${unavTimesWed[6]}: ${Globals.customTasks[i]}";
                   positionWed.add(6);
                 }
                 else if (positionWed.contains(7) == false && unavTimesWed.length >= 7) {
-                  unavTimesWed[7] = "${unavTimesWed[7]}: ${newTasks[i][i]}";
+                  unavTimesWed[7] = "${unavTimesWed[7]}: ${Globals.customTasks[i]}";
                   positionWed.add(7);
                 }
                 else if (positionWed.contains(8) == false && unavTimesWed.length >= 8) {
-                  unavTimesWed[8] = "${unavTimesWed[8]}: ${newTasks[i][i]}";
+                  unavTimesWed[8] = "${unavTimesWed[8]}: ${Globals.customTasks[i]}";
                   positionWed.add(8);
                 }
                 else if (positionWed.contains(9) == false && unavTimesWed.length >= 9) {
-                  unavTimesWed[9] = "${unavTimesWed[9]}: ${newTasks[i][i]}";
+                  unavTimesWed[9] = "${unavTimesWed[9]}: ${Globals.customTasks[i]}";
                   positionWed.add(9);
                 }
                 else if (positionWed.contains(10) == false && unavTimesWed.length >= 10) {
-                  unavTimesWed[10] = "${unavTimesWed[10]}: ${newTasks[i][i]}";
+                  unavTimesWed[10] = "${unavTimesWed[10]}: ${Globals.customTasks[i]}";
                   positionWed.add(10);
                 }
                 else if (positionWed.contains(11) == false && unavTimesWed.length == 11) {
-                  unavTimesWed[11] = "${unavTimesWed[11]}: ${newTasks[i][i]}";
+                  unavTimesWed[11] = "${unavTimesWed[11]}: ${Globals.customTasks[i]}";
                   positionWed.add(11);
                 }
               }
@@ -550,55 +511,55 @@ class _GenerateSchedule3State extends State<GenerateSchedule3> {
           }
         }
       } else {
-        for (var i = 0; i < newTasks.length; i++) {
-          if (newDaysWed[i][0] == newTasks[i]) {
-            for (var t = 0; t < newTimes[i][0]; t++) {
+        for (var i = 0; i < Globals.customTasks.length; i++) {
+          if (Globals.customDayWednesday.isNotEmpty && Globals.customDayWednesday.contains(Globals.customTasks[i]) == true) {
+            for (var t = 0; t < Globals.customTimes[i]; t++) {
               if (positionWed.contains(0) == false && unavTimesWed.length > 0) {
-                unavTimesWed[0] = "${unavTimesWed[0]}: ${newTasks[i][i]}";
+                unavTimesWed[0] = "${unavTimesWed[0]}: ${Globals.customTasks[i]}";
                 positionWed.add(0);
               }
               else if (positionWed.contains(1) == false && unavTimesWed.length >= 1) {
-                unavTimesWed[1] = "${unavTimesWed[1]}: ${newTasks[i][i]}";
+                unavTimesWed[1] = "${unavTimesWed[1]}: ${Globals.customTasks[i]}";
                 positionWed.add(1);
               }
               else if (positionWed.contains(2) == false && unavTimesWed.length >= 2) {
-                unavTimesWed[2] = "${unavTimesWed[2]}: ${newTasks[i][i]}";
+                unavTimesWed[2] = "${unavTimesWed[2]}: ${Globals.customTasks[i]}";
                 positionWed.add(2);
               }
               else if (positionWed.contains(3) == false && unavTimesWed.length >= 3) {
-                unavTimesWed[3] = "${unavTimesWed[3]}: ${newTasks[i][i]}";
+                unavTimesWed[3] = "${unavTimesWed[3]}: ${Globals.customTasks[i]}";
                 positionWed.add(3);
               }
               else if (positionWed.contains(4) == false && unavTimesWed.length >= 4) {
-                unavTimesWed[4] = "${unavTimesWed[4]}: ${newTasks[i][i]}";
+                unavTimesWed[4] = "${unavTimesWed[4]}: ${Globals.customTasks[i]}";
                 positionWed.add(4);
               }
               else if (positionWed.contains(5) == false && unavTimesWed.length >= 5) {
-                unavTimesWed[5] = "${unavTimesWed[5]}: ${newTasks[i][i]}";
+                unavTimesWed[5] = "${unavTimesWed[5]}: ${Globals.customTasks[i]}";
                 positionWed.add(5);
               }
               else if (positionWed.contains(6) == false && unavTimesWed.length >= 6) {
-                unavTimesWed[6] = "${unavTimesWed[6]}: ${newTasks[i][i]}";
+                unavTimesWed[6] = "${unavTimesWed[6]}: ${Globals.customTasks[i]}";
                 positionWed.add(6);
               }
               else if (positionWed.contains(7) == false && unavTimesWed.length >= 7) {
-                unavTimesWed[7] = "${unavTimesWed[7]}: ${newTasks[i][i]}";
+                unavTimesWed[7] = "${unavTimesWed[7]}: ${Globals.customTasks[i]}";
                 positionWed.add(7);
               }
               else if (positionWed.contains(8) == false && unavTimesWed.length >= 8) {
-                unavTimesWed[8] = "${unavTimesWed[8]}: ${newTasks[i][i]}";
+                unavTimesWed[8] = "${unavTimesWed[8]}: ${Globals.customTasks[i]}";
                 positionWed.add(8);
               }
               else if (positionWed.contains(9) == false && unavTimesWed.length >= 9) {
-                unavTimesWed[9] = "${unavTimesWed[9]}: ${newTasks[i][i]}";
+                unavTimesWed[9] = "${unavTimesWed[9]}: ${Globals.customTasks[i]}";
                 positionWed.add(9);
               }
               else if (positionWed.contains(10) == false && unavTimesWed.length >= 10) {
-                unavTimesWed[10] = "${unavTimesWed[10]}: ${newTasks[i][i]}";
+                unavTimesWed[10] = "${unavTimesWed[10]}: ${Globals.customTasks[i]}";
                 positionWed.add(10);
               }
               else if (positionWed.contains(11) == false && unavTimesWed.length == 11) {
-                unavTimesWed[11] = "${unavTimesWed[11]}: ${newTasks[i][i]}";
+                unavTimesWed[11] = "${unavTimesWed[11]}: ${Globals.customTasks[i]}";
                 positionWed.add(11);
               }
             }
@@ -616,56 +577,56 @@ class _GenerateSchedule3State extends State<GenerateSchedule3> {
           "${unavTimesThu[positionThu.elementAt(i)]}: Unavailable";
         }
         //Add tasks
-        if (newTasks.length > 0) {
-          for (var i = 0; i < newTasks.length; i++) {
-            if (newDaysThu[i][0] == newTasks[i]) {
-              for (var t = 0; t < newTimes[i][0]; t++) {
+        if (Globals.customTasks.length > 0) {
+          for (var i = 0; i < Globals.customTasks.length; i++) {
+            if (Globals.customDayThursday.isNotEmpty && Globals.customDayThursday.contains(Globals.customTasks[i]) == true) {
+              for (var t = 0; t < Globals.customTimes[i]; t++) {
                 if (positionThu.contains(0) == false && unavTimesThu.length > 0) {
-                  unavTimesThu[0] = "${unavTimesThu[0]}: ${newTasks[i][i]}";
+                  unavTimesThu[0] = "${unavTimesThu[0]}: ${Globals.customTasks[i]}";
                   positionThu.add(0);
                 }
                 else if (positionThu.contains(1) == false && unavTimesThu.length >= 1) {
-                  unavTimesThu[1] = "${unavTimesThu[1]}: ${newTasks[i][i]}";
+                  unavTimesThu[1] = "${unavTimesThu[1]}: ${Globals.customTasks[i]}";
                   positionThu.add(1);
                 }
                 else if (positionThu.contains(2) == false && unavTimesThu.length >= 2) {
-                  unavTimesThu[2] = "${unavTimesThu[2]}: ${newTasks[i][i]}";
+                  unavTimesThu[2] = "${unavTimesThu[2]}: ${Globals.customTasks[i]}";
                   positionThu.add(2);
                 }
                 else if (positionThu.contains(3) == false && unavTimesThu.length >= 3) {
-                  unavTimesThu[3] = "${unavTimesThu[3]}: ${newTasks[i][i]}";
+                  unavTimesThu[3] = "${unavTimesThu[3]}: ${Globals.customTasks[i]}";
                   positionThu.add(3);
                 }
                 else if (positionThu.contains(4) == false && unavTimesThu.length >= 4) {
-                  unavTimesThu[4] = "${unavTimesThu[4]}: ${newTasks[i][i]}";
+                  unavTimesThu[4] = "${unavTimesThu[4]}: ${Globals.customTasks[i]}";
                   positionThu.add(4);
                 }
                 else if (positionThu.contains(5) == false && unavTimesThu.length >= 5) {
-                  unavTimesThu[5] = "${unavTimesThu[5]}: ${newTasks[i][i]}";
+                  unavTimesThu[5] = "${unavTimesThu[5]}: ${Globals.customTasks[i]}";
                   positionThu.add(5);
                 }
                 else if (positionThu.contains(6) == false && unavTimesThu.length >= 6) {
-                  unavTimesThu[6] = "${unavTimesThu[6]}: ${newTasks[i][i]}";
+                  unavTimesThu[6] = "${unavTimesThu[6]}: ${Globals.customTasks[i]}";
                   positionThu.add(6);
                 }
                 else if (positionThu.contains(7) == false && unavTimesThu.length >= 7) {
-                  unavTimesThu[7] = "${unavTimesThu[7]}: ${newTasks[i][i]}";
+                  unavTimesThu[7] = "${unavTimesThu[7]}: ${Globals.customTasks[i]}";
                   positionThu.add(7);
                 }
                 else if (positionThu.contains(8) == false && unavTimesThu.length >= 8) {
-                  unavTimesThu[8] = "${unavTimesThu[8]}: ${newTasks[i][i]}";
+                  unavTimesThu[8] = "${unavTimesThu[8]}: ${Globals.customTasks[i]}";
                   positionThu.add(8);
                 }
                 else if (positionThu.contains(9) == false && unavTimesThu.length >= 9) {
-                  unavTimesThu[9] = "${unavTimesThu[9]}: ${newTasks[i][i]}";
+                  unavTimesThu[9] = "${unavTimesThu[9]}: ${Globals.customTasks[i]}";
                   positionThu.add(9);
                 }
                 else if (positionThu.contains(10) == false && unavTimesThu.length >= 10) {
-                  unavTimesThu[10] = "${unavTimesThu[10]}: ${newTasks[i][i]}";
+                  unavTimesThu[10] = "${unavTimesThu[10]}: ${Globals.customTasks[i]}";
                   positionThu.add(10);
                 }
                 else if (positionThu.contains(11) == false && unavTimesThu.length == 11) {
-                  unavTimesThu[11] = "${unavTimesThu[11]}: ${newTasks[i][i]}";
+                  unavTimesThu[11] = "${unavTimesThu[11]}: ${Globals.customTasks[i]}";
                   positionThu.add(11);
                 }
               }
@@ -673,55 +634,55 @@ class _GenerateSchedule3State extends State<GenerateSchedule3> {
           }
         }
       }else{
-        for (var i = 0; i < newTasks.length; i++) {
-          if (newDaysThu[i][0] == newTasks[i]) {
-            for (var t = 0; t < newTimes[i][0]; t++) {
+        for (var i = 0; i < Globals.customTasks.length; i++) {
+          if (Globals.customDayThursday.isNotEmpty && Globals.customDayThursday.contains(Globals.customTasks[i]) == true) {
+            for (var t = 0; t < Globals.customTimes[i]; t++) {
               if (positionThu.contains(0) == false && unavTimesThu.length > 0) {
-                unavTimesThu[0] = "${unavTimesThu[0]}: ${newTasks[i][i]}";
+                unavTimesThu[0] = "${unavTimesThu[0]}: ${Globals.customTasks[i]}";
                 positionThu.add(0);
               }
               else if (positionThu.contains(1) == false && unavTimesThu.length >= 1) {
-                unavTimesThu[1] = "${unavTimesThu[1]}: ${newTasks[i][i]}";
+                unavTimesThu[1] = "${unavTimesThu[1]}: ${Globals.customTasks[i]}";
                 positionThu.add(1);
               }
               else if (positionThu.contains(2) == false && unavTimesThu.length >= 2) {
-                unavTimesThu[2] = "${unavTimesThu[2]}: ${newTasks[i][i]}";
+                unavTimesThu[2] = "${unavTimesThu[2]}: ${Globals.customTasks[i]}";
                 positionThu.add(2);
               }
               else if (positionThu.contains(3) == false && unavTimesThu.length >= 3) {
-                unavTimesThu[3] = "${unavTimesThu[3]}: ${newTasks[i][i]}";
+                unavTimesThu[3] = "${unavTimesThu[3]}: ${Globals.customTasks[i]}";
                 positionThu.add(3);
               }
               else if (positionThu.contains(4) == false && unavTimesThu.length >= 4) {
-                unavTimesThu[4] = "${unavTimesThu[4]}: ${newTasks[i][i]}";
+                unavTimesThu[4] = "${unavTimesThu[4]}: ${Globals.customTasks[i]}";
                 positionThu.add(4);
               }
               else if (positionThu.contains(5) == false && unavTimesThu.length >= 5) {
-                unavTimesThu[5] = "${unavTimesThu[5]}: ${newTasks[i][i]}";
+                unavTimesThu[5] = "${unavTimesThu[5]}: ${Globals.customTasks[i]}";
                 positionThu.add(5);
               }
               else if (positionThu.contains(6) == false && unavTimesThu.length >= 6) {
-                unavTimesThu[6] = "${unavTimesThu[6]}: ${newTasks[i][i]}";
+                unavTimesThu[6] = "${unavTimesThu[6]}: ${Globals.customTasks[i]}";
                 positionThu.add(6);
               }
               else if (positionThu.contains(7) == false && unavTimesThu.length >= 7) {
-                unavTimesThu[7] = "${unavTimesThu[7]}: ${newTasks[i][i]}";
+                unavTimesThu[7] = "${unavTimesThu[7]}: ${Globals.customTasks[i]}";
                 positionThu.add(7);
               }
               else if (positionThu.contains(8) == false && unavTimesThu.length >= 8) {
-                unavTimesThu[8] = "${unavTimesThu[8]}: ${newTasks[i][i]}";
+                unavTimesThu[8] = "${unavTimesThu[8]}: ${Globals.customTasks[i]}";
                 positionThu.add(8);
               }
               else if (positionThu.contains(9) == false && unavTimesThu.length >= 9) {
-                unavTimesThu[9] = "${unavTimesThu[9]}: ${newTasks[i][i]}";
+                unavTimesThu[9] = "${unavTimesThu[9]}: ${Globals.customTasks[i]}";
                 positionThu.add(9);
               }
               else if (positionThu.contains(10) == false && unavTimesThu.length >= 10) {
-                unavTimesThu[10] = "${unavTimesThu[10]}: ${newTasks[i][i]}";
+                unavTimesThu[10] = "${unavTimesThu[10]}: ${Globals.customTasks[i]}";
                 positionThu.add(10);
               }
               else if (positionThu.contains(11) == false && unavTimesThu.length == 11) {
-                unavTimesThu[11] = "${unavTimesThu[11]}: ${newTasks[i][i]}";
+                unavTimesThu[11] = "${unavTimesThu[11]}: ${Globals.customTasks[i]}";
                 positionThu.add(11);
               }
             }
@@ -739,56 +700,56 @@ class _GenerateSchedule3State extends State<GenerateSchedule3> {
           "${unavTimesFri[positionFri.elementAt(i)]}: Unavailable";
         }
         //Add tasks
-        if (newTasks.length > 0) {
-          for (var i = 0; i < newTasks.length; i++) {
-            if (newDaysFri[i][0] == newTasks[i]) {
-              for (var t = 0; t < newTimes[i][0]; t++) {
+        if (Globals.customTasks.length > 0) {
+          for (var i = 0; i < Globals.customTasks.length; i++) {
+            if (Globals.customDayFriday.isNotEmpty && Globals.customDayFriday.contains(Globals.customTasks[i]) == true) {
+              for (var t = 0; t < Globals.customTimes[i]; t++) {
                 if (positionFri.contains(0) == false && unavTimesFri.length > 0) {
-                  unavTimesFri[0] = "${unavTimesFri[0]}: ${newTasks[i][i]}";
+                  unavTimesFri[0] = "${unavTimesFri[0]}: ${Globals.customTasks[i]}";
                   positionFri.add(0);
                 }
                 else if (positionFri.contains(1) == false && unavTimesFri.length >= 1) {
-                  unavTimesFri[1] = "${unavTimesFri[1]}: ${newTasks[i][i]}";
+                  unavTimesFri[1] = "${unavTimesFri[1]}: ${Globals.customTasks[i]}";
                   positionFri.add(1);
                 }
                 else if (positionFri.contains(2) == false && unavTimesFri.length >= 2) {
-                  unavTimesFri[2] = "${unavTimesFri[2]}: ${newTasks[i][i]}";
+                  unavTimesFri[2] = "${unavTimesFri[2]}: ${Globals.customTasks[i]}";
                   positionFri.add(2);
                 }
                 else if (positionFri.contains(3) == false && unavTimesFri.length >= 3) {
-                  unavTimesFri[3] = "${unavTimesFri[3]}: ${newTasks[i][i]}";
+                  unavTimesFri[3] = "${unavTimesFri[3]}: ${Globals.customTasks[i]}";
                   positionFri.add(3);
                 }
                 else if (positionFri.contains(4) == false && unavTimesFri.length >= 4) {
-                  unavTimesFri[4] = "${unavTimesFri[4]}: ${newTasks[i][i]}";
+                  unavTimesFri[4] = "${unavTimesFri[4]}: ${Globals.customTasks[i]}";
                   positionFri.add(4);
                 }
                 else if (positionFri.contains(5) == false && unavTimesFri.length >= 5) {
-                  unavTimesFri[5] = "${unavTimesFri[5]}: ${newTasks[i][i]}";
+                  unavTimesFri[5] = "${unavTimesFri[5]}: ${Globals.customTasks[i]}";
                   positionFri.add(5);
                 }
                 else if (positionFri.contains(6) == false && unavTimesFri.length >= 6) {
-                  unavTimesFri[6] = "${unavTimesFri[6]}: ${newTasks[i][i]}";
+                  unavTimesFri[6] = "${unavTimesFri[6]}: ${Globals.customTasks[i]}";
                   positionFri.add(6);
                 }
                 else if (positionFri.contains(7) == false && unavTimesFri.length >= 7) {
-                  unavTimesFri[7] = "${unavTimesFri[7]}: ${newTasks[i][i]}";
+                  unavTimesFri[7] = "${unavTimesFri[7]}: ${Globals.customTasks[i]}";
                   positionFri.add(7);
                 }
                 else if (positionFri.contains(8) == false && unavTimesFri.length >= 8) {
-                  unavTimesFri[8] = "${unavTimesFri[8]}: ${newTasks[i][i]}";
+                  unavTimesFri[8] = "${unavTimesFri[8]}: ${Globals.customTasks[i]}";
                   positionFri.add(8);
                 }
                 else if (positionFri.contains(9) == false && unavTimesFri.length >= 9) {
-                  unavTimesFri[9] = "${unavTimesFri[9]}: ${newTasks[i][i]}";
+                  unavTimesFri[9] = "${unavTimesFri[9]}: ${Globals.customTasks[i]}";
                   positionFri.add(9);
                 }
                 else if (positionFri.contains(10) == false && unavTimesFri.length >= 10) {
-                  unavTimesFri[10] = "${unavTimesFri[10]}: ${newTasks[i][i]}";
+                  unavTimesFri[10] = "${unavTimesFri[10]}: ${Globals.customTasks[i]}";
                   positionFri.add(10);
                 }
                 else if (positionFri.contains(11) == false && unavTimesFri.length == 11) {
-                  unavTimesFri[11] = "${unavTimesFri[11]}: ${newTasks[i][i]}";
+                  unavTimesFri[11] = "${unavTimesFri[11]}: ${Globals.customTasks[i]}";
                   positionFri.add(11);
                 }
               }
@@ -796,55 +757,55 @@ class _GenerateSchedule3State extends State<GenerateSchedule3> {
           }
         }
       }else{
-        for (var i = 0; i < newTasks.length; i++) {
-          if (newDaysFri[i][0] == newTasks[i]) {
-            for (var t = 0; t < newTimes[i][0]; t++) {
+        for (var i = 0; i < Globals.customTasks.length; i++) {
+          if (Globals.customDayFriday.isNotEmpty && Globals.customDayFriday.contains(Globals.customTasks[i]) == true) {
+            for (var t = 0; t < Globals.customTimes[i]; t++) {
               if (positionFri.contains(0) == false && unavTimesFri.length > 0) {
-                unavTimesFri[0] = "${unavTimesFri[0]}: ${newTasks[i][i]}";
+                unavTimesFri[0] = "${unavTimesFri[0]}: ${Globals.customTasks[i]}";
                 positionFri.add(0);
               }
               else if (positionFri.contains(1) == false && unavTimesFri.length >= 1) {
-                unavTimesFri[1] = "${unavTimesFri[1]}: ${newTasks[i][i]}";
+                unavTimesFri[1] = "${unavTimesFri[1]}: ${Globals.customTasks[i]}";
                 positionFri.add(1);
               }
               else if (positionFri.contains(2) == false && unavTimesFri.length >= 2) {
-                unavTimesFri[2] = "${unavTimesFri[2]}: ${newTasks[i][i]}";
+                unavTimesFri[2] = "${unavTimesFri[2]}: ${Globals.customTasks[i]}";
                 positionFri.add(2);
               }
               else if (positionFri.contains(3) == false && unavTimesFri.length >= 3) {
-                unavTimesFri[3] = "${unavTimesFri[3]}: ${newTasks[i][i]}";
+                unavTimesFri[3] = "${unavTimesFri[3]}: ${Globals.customTasks[i]}";
                 positionFri.add(3);
               }
               else if (positionFri.contains(4) == false && unavTimesFri.length >= 4) {
-                unavTimesFri[4] = "${unavTimesFri[4]}: ${newTasks[i][i]}";
+                unavTimesFri[4] = "${unavTimesFri[4]}: ${Globals.customTasks[i]}";
                 positionFri.add(4);
               }
               else if (positionFri.contains(5) == false && unavTimesFri.length >= 5) {
-                unavTimesFri[5] = "${unavTimesFri[5]}: ${newTasks[i][i]}";
+                unavTimesFri[5] = "${unavTimesFri[5]}: ${Globals.customTasks[i]}";
                 positionFri.add(5);
               }
               else if (positionFri.contains(6) == false && unavTimesFri.length >= 6) {
-                unavTimesFri[6] = "${unavTimesFri[6]}: ${newTasks[i][i]}";
+                unavTimesFri[6] = "${unavTimesFri[6]}: ${Globals.customTasks[i]}";
                 positionFri.add(6);
               }
               else if (positionFri.contains(7) == false && unavTimesFri.length >= 7) {
-                unavTimesFri[7] = "${unavTimesFri[7]}: ${newTasks[i][i]}";
+                unavTimesFri[7] = "${unavTimesFri[7]}: ${Globals.customTasks[i]}";
                 positionFri.add(7);
               }
               else if (positionFri.contains(8) == false && unavTimesFri.length >= 8) {
-                unavTimesFri[8] = "${unavTimesFri[8]}: ${newTasks[i][i]}";
+                unavTimesFri[8] = "${unavTimesFri[8]}: ${Globals.customTasks[i]}";
                 positionFri.add(8);
               }
               else if (positionFri.contains(9) == false && unavTimesFri.length >= 9) {
-                unavTimesFri[9] = "${unavTimesFri[9]}: ${newTasks[i][i]}";
+                unavTimesFri[9] = "${unavTimesFri[9]}: ${Globals.customTasks[i]}";
                 positionFri.add(9);
               }
               else if (positionFri.contains(10) == false && unavTimesFri.length >= 10) {
-                unavTimesFri[10] = "${unavTimesFri[10]}: ${newTasks[i][i]}";
+                unavTimesFri[10] = "${unavTimesFri[10]}: ${Globals.customTasks[i]}";
                 positionFri.add(10);
               }
               else if (positionFri.contains(11) == false && unavTimesFri.length == 11) {
-                unavTimesFri[11] = "${unavTimesFri[11]}: ${newTasks[i][i]}";
+                unavTimesFri[11] = "${unavTimesFri[11]}: ${Globals.customTasks[i]}";
                 positionFri.add(11);
               }
             }
@@ -862,56 +823,56 @@ class _GenerateSchedule3State extends State<GenerateSchedule3> {
           "${unavTimesSat[positionSat.elementAt(i)]}: Unavailable";
         }
         //Add tasks
-        if (newTasks.length > 0) {
-          for (var i = 0; i < newTasks.length; i++) {
-            if (newDaysSat[i][0] == newTasks[i]) {
-              for (var t = 0; t < newTimes[i][0]; t++) {
+        if (Globals.customTasks.length > 0) {
+          for (var i = 0; i < Globals.customTasks.length; i++) {
+            if (Globals.customDaySaturday.isNotEmpty && Globals.customDaySaturday.contains(Globals.customTasks[i]) == true) {
+              for (var t = 0; t < Globals.customTimes[i]; t++) {
                 if (positionSat.contains(0) == false && unavTimesSat.length > 0) {
-                  unavTimesSat[0] = "${unavTimesSat[0]}: ${newTasks[i][i]}";
+                  unavTimesSat[0] = "${unavTimesSat[0]}: ${Globals.customTasks[i]}";
                   positionSat.add(0);
                 }
                 else if (positionSat.contains(1) == false && unavTimesSat.length >= 1) {
-                  unavTimesSat[1] = "${unavTimesSat[1]}: ${newTasks[i][i]}";
+                  unavTimesSat[1] = "${unavTimesSat[1]}: ${Globals.customTasks[i]}";
                   positionSat.add(1);
                 }
                 else if (positionSat.contains(2) == false && unavTimesSat.length >= 2) {
-                  unavTimesSat[2] = "${unavTimesSat[2]}: ${newTasks[i][i]}";
+                  unavTimesSat[2] = "${unavTimesSat[2]}: ${Globals.customTasks[i]}";
                   positionSat.add(2);
                 }
                 else if (positionSat.contains(3) == false && unavTimesSat.length >= 3) {
-                  unavTimesSat[3] = "${unavTimesSat[3]}: ${newTasks[i][i]}";
+                  unavTimesSat[3] = "${unavTimesSat[3]}: ${Globals.customTasks[i]}";
                   positionSat.add(3);
                 }
                 else if (positionSat.contains(4) == false && unavTimesSat.length >= 4) {
-                  unavTimesSat[4] = "${unavTimesSat[4]}: ${newTasks[i][i]}";
+                  unavTimesSat[4] = "${unavTimesSat[4]}: ${Globals.customTasks[i]}";
                   positionSat.add(4);
                 }
                 else if (positionSat.contains(5) == false && unavTimesSat.length >= 5) {
-                  unavTimesSat[5] = "${unavTimesSat[5]}: ${newTasks[i][i]}";
+                  unavTimesSat[5] = "${unavTimesSat[5]}: ${Globals.customTasks[i]}";
                   positionSat.add(5);
                 }
                 else if (positionSat.contains(6) == false && unavTimesSat.length >= 6) {
-                  unavTimesSat[6] = "${unavTimesSat[6]}: ${newTasks[i][i]}";
+                  unavTimesSat[6] = "${unavTimesSat[6]}: ${Globals.customTasks[i]}";
                   positionSat.add(6);
                 }
                 else if (positionSat.contains(7) == false && unavTimesSat.length >= 7) {
-                  unavTimesSat[7] = "${unavTimesSat[7]}: ${newTasks[i][i]}";
+                  unavTimesSat[7] = "${unavTimesSat[7]}: ${Globals.customTasks[i]}";
                   positionSat.add(7);
                 }
                 else if (positionSat.contains(8) == false && unavTimesSat.length >= 8) {
-                  unavTimesSat[8] = "${unavTimesSat[8]}: ${newTasks[i][i]}";
+                  unavTimesSat[8] = "${unavTimesSat[8]}: ${Globals.customTasks[i]}";
                   positionSat.add(8);
                 }
                 else if (positionSat.contains(9) == false && unavTimesSat.length >= 9) {
-                  unavTimesSat[9] = "${unavTimesSat[9]}: ${newTasks[i][i]}";
+                  unavTimesSat[9] = "${unavTimesSat[9]}: ${Globals.customTasks[i]}";
                   positionSat.add(9);
                 }
                 else if (positionSat.contains(10) == false && unavTimesSat.length >= 10) {
-                  unavTimesSat[10] = "${unavTimesSat[10]}: ${newTasks[i][i]}";
+                  unavTimesSat[10] = "${unavTimesSat[10]}: ${Globals.customTasks[i]}";
                   positionSat.add(10);
                 }
                 else if (positionSat.contains(11) == false && unavTimesSat.length == 11) {
-                  unavTimesSat[11] = "${unavTimesSat[11]}: ${newTasks[i][i]}";
+                  unavTimesSat[11] = "${unavTimesSat[11]}: ${Globals.customTasks[i]}";
                   positionSat.add(11);
                 }
               }
@@ -919,55 +880,55 @@ class _GenerateSchedule3State extends State<GenerateSchedule3> {
           }
         }
       } else{
-        for (var i = 0; i < newTasks.length; i++) {
-          if (newDaysSat[i][0] == newTasks[i]) {
-            for (var t = 0; t < newTimes[i][0]; t++) {
+        for (var i = 0; i < Globals.customTasks.length; i++) {
+          if (Globals.customDaySaturday.isNotEmpty && Globals.customDaySaturday.contains(Globals.customTasks[i]) == true) {
+            for (var t = 0; t < Globals.customTimes[i]; t++) {
               if (positionSat.contains(0) == false && unavTimesSat.length > 0) {
-                unavTimesSat[0] = "${unavTimesSat[0]}: ${newTasks[i][i]}";
+                unavTimesSat[0] = "${unavTimesSat[0]}: ${Globals.customTasks[i]}";
                 positionSat.add(0);
               }
               else if (positionSat.contains(1) == false && unavTimesSat.length >= 1) {
-                unavTimesSat[1] = "${unavTimesSat[1]}: ${newTasks[i][i]}";
+                unavTimesSat[1] = "${unavTimesSat[1]}: ${Globals.customTasks[i]}";
                 positionSat.add(1);
               }
               else if (positionSat.contains(2) == false && unavTimesSat.length >= 2) {
-                unavTimesSat[2] = "${unavTimesSat[2]}: ${newTasks[i][i]}";
+                unavTimesSat[2] = "${unavTimesSat[2]}: ${Globals.customTasks[i]}";
                 positionSat.add(2);
               }
               else if (positionSat.contains(3) == false && unavTimesSat.length >= 3) {
-                unavTimesSat[3] = "${unavTimesSat[3]}: ${newTasks[i][i]}";
+                unavTimesSat[3] = "${unavTimesSat[3]}: ${Globals.customTasks[i]}";
                 positionSat.add(3);
               }
               else if (positionSat.contains(4) == false && unavTimesSat.length >= 4) {
-                unavTimesSat[4] = "${unavTimesSat[4]}: ${newTasks[i][i]}";
+                unavTimesSat[4] = "${unavTimesSat[4]}: ${Globals.customTasks[i]}";
                 positionSat.add(4);
               }
               else if (positionSat.contains(5) == false && unavTimesSat.length >= 5) {
-                unavTimesSat[5] = "${unavTimesSat[5]}: ${newTasks[i][i]}";
+                unavTimesSat[5] = "${unavTimesSat[5]}: ${Globals.customTasks[i]}";
                 positionSat.add(5);
               }
               else if (positionSat.contains(6) == false && unavTimesSat.length >= 6) {
-                unavTimesSat[6] = "${unavTimesSat[6]}: ${newTasks[i][i]}";
+                unavTimesSat[6] = "${unavTimesSat[6]}: ${Globals.customTasks[i]}";
                 positionSat.add(6);
               }
               else if (positionSat.contains(7) == false && unavTimesSat.length >= 7) {
-                unavTimesSat[7] = "${unavTimesSat[7]}: ${newTasks[i][i]}";
+                unavTimesSat[7] = "${unavTimesSat[7]}: ${Globals.customTasks[i]}";
                 positionSat.add(7);
               }
               else if (positionSat.contains(8) == false && unavTimesSat.length >= 8) {
-                unavTimesSat[8] = "${unavTimesSat[8]}: ${newTasks[i][i]}";
+                unavTimesSat[8] = "${unavTimesSat[8]}: ${Globals.customTasks[i]}";
                 positionSat.add(8);
               }
               else if (positionSat.contains(9) == false && unavTimesSat.length >= 9) {
-                unavTimesSat[9] = "${unavTimesSat[9]}: ${newTasks[i][i]}";
+                unavTimesSat[9] = "${unavTimesSat[9]}: ${Globals.customTasks[i]}";
                 positionSat.add(9);
               }
               else if (positionSat.contains(10) == false && unavTimesSat.length >= 10) {
-                unavTimesSat[10] = "${unavTimesSat[10]}: ${newTasks[i][i]}";
+                unavTimesSat[10] = "${unavTimesSat[10]}: ${Globals.customTasks[i]}";
                 positionSat.add(10);
               }
               else if (positionSat.contains(11) == false && unavTimesSat.length == 11) {
-                unavTimesSat[11] = "${unavTimesSat[11]}: ${newTasks[i][i]}";
+                unavTimesSat[11] = "${unavTimesSat[11]}: ${Globals.customTasks[i]}";
                 positionSat.add(11);
               }
             }

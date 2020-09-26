@@ -1,7 +1,5 @@
 //Create widget for task input for custom schedule
 
-import 'dart:collection';
-
 /// QUESTIONS TO ASK
 // What is the activity?
 // How much time do you usually spend on it?
@@ -9,16 +7,19 @@ import 'dart:collection';
 
 import 'package:flutter/material.dart';
 import 'package:smart_schedule_creator/globals.dart';
+import 'package:smart_schedule_creator/GenerateSchedule3.dart';
+import 'package:smart_schedule_creator/GeneratingTasks.dart';
 
-List userTasks = Globals.customTasks;
+
+List customTasks = Globals.customTasks;
 List customTimes = Globals.customTimes;
-List customDaySunday = Globals.customDaySunday;
-List customDayMonday = Globals.customDayMonday;
-List customDayTuesday = Globals.customDayTuesday;
-List customDayWednesday = Globals.customDayWednesday;
-List customDayThursday = Globals.customDayThursday;
-List customDayFriday = Globals.customDayFriday;
-List customDaySaturday = Globals.customDaySaturday;
+Set customDaySunday = Globals.customDaySunday;
+Set customDayMonday = Globals.customDayMonday;
+Set customDayTuesday = Globals.customDayTuesday;
+Set customDayWednesday = Globals.customDayWednesday;
+Set customDayThursday = Globals.customDayThursday;
+Set customDayFriday = Globals.customDayFriday;
+Set customDaySaturday = Globals.customDaySaturday;
 
 
 class TaskRow3 extends StatefulWidget {
@@ -27,27 +28,27 @@ class TaskRow3 extends StatefulWidget {
     return customTimes;
   }
   List get tasks{
-    return userTasks;
+    return customTasks;
   }
-  List get daysSun{
+  Set get daysSun{
     return customDaySunday;
   }
-  List get daysMon{
+  Set get daysMon{
     return customDayMonday;
   }
-  List get daysTue{
+  Set get daysTue{
     return customDayTuesday;
   }
-  List get daysWed{
+  Set get daysWed{
     return customDayWednesday;
   }
-  List get daysThu{
+  Set get daysThu{
     return customDayThursday;
   }
-  List get daysFri{
+  Set get daysFri{
     return customDayFriday;
   }
-  List get daysSat{
+  Set get daysSat{
     return customDaySaturday;
   }
 
@@ -117,7 +118,7 @@ class _TaskRow3State extends State<TaskRow3> {
                       onChanged: (String newValue) {
                         _timeValues[0] = newValue;
                         customTimes?.add(int.parse(_timeValues[0]));
-                        userTasks?.add(textControllerName.text);
+                        customTasks?.add(textControllerName.text);
                         setState(() {
                         });
                       },

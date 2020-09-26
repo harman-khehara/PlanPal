@@ -51,13 +51,13 @@ class _GeneratingTasksState extends State<GeneratingTasks> {
   int count = 1;
   List newTimes = [];
   List newTasks = [];
-  List newDaysSun = [];
-  List newDaysMon = [];
-  List newDaysTue = [];
-  List newDaysWed = [];
-  List newDaysThu = [];
-  List newDaysFri = [];
-  List newDaysSat = [];
+  Set newDaysSun = {};
+  Set newDaysMon = {};
+  Set newDaysTue = {};
+  Set newDaysWed = {};
+  Set newDaysThu = {};
+  Set newDaysFri = {};
+  Set newDaysSat = {};
 
   @override
   Widget build(BuildContext context) {
@@ -198,15 +198,6 @@ class _GeneratingTasksState extends State<GeneratingTasks> {
                             unavTimesThu: unavTimesThu,
                             unavTimesFri: unavTimesFri,
                             unavTimesSat: unavTimesSat,
-                            newTimes: newTimes,
-                            newTasks: newTasks,
-                            newDaysSun: newDaysSun,
-                            newDaysMon: newDaysMon,
-                            newDaysTue: newDaysTue,
-                            newDaysWed: newDaysWed,
-                            newDaysThu: newDaysThu,
-                            newDaysFri: newDaysFri,
-                            newDaysSat: newDaysSat,
                           )));
                 },
                 icon: Icon(
@@ -227,7 +218,7 @@ class _GeneratingTasksState extends State<GeneratingTasks> {
             children: [
               Padding(padding: const EdgeInsets.fromLTRB(16.0,25.0,16.0,16.0),
                 child: SizedBox(
-                    height: 200.0,
+                    height: 100.0,
                     width: 400.0,
                     child: Material(
                         borderRadius: BorderRadius.circular(24.0),
