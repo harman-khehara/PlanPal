@@ -22,7 +22,7 @@
 <h2 align="center" id="features">Features & Functionality</h2>
 <dl>
   <dt>Short Study Schedule</dt>
-  <dd align="center">The short study schedule option allows you to study in multiple 1 hour time intervals with 10 minute breaks. The user input for this schedule consists of the tasks the user would like to work on for the day, the amount of time the user would like to spend per task, the times they are unavailable, a start time as well as a date for the schedule to be generated.
+  <dd align="center">The Short Study Sschedule option allows you to study in multiple 1 hour time intervals with 10 minute breaks. The user input for this schedule consists of the tasks the user would like to work on for the day, the amount of time the user would like to spend per task, the times they are unavailable, a start time as well as a date for the schedule to be generated.
     <table>
       <tr>
         <th>
@@ -87,7 +87,7 @@
   <a href="https://flutter.dev/docs/get-started/install">Flutter</a> website for more information.</p>
 
 <ol>
-  <li>Open up Command Prompt.</li>
+  <li>Open up Command Prompt on Windows or Terminal on macOS.</li>
   <li>Use the <code>cd</code> command to change the directory to the location of the <code>.dart</code> files for this app.</li>
   <li>Use the <code>flutter pub get</code> command to get all dependencies for the app.</li>
   <li>Use the <code>flutter run</code> command.</li>
