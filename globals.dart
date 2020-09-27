@@ -12,4 +12,6 @@ class Globals {
   static Set customDayThursday = {};
   static Set customDayFriday = {};
   static Set customDaySaturday = {};
+  static List dropdownValue2 = [];
+  static List userTasks2 = [];
 }
