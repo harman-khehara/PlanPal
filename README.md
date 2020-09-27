@@ -6,7 +6,7 @@
 
 <p align="center">The main features of this app include:</p>
 <p align="center">1. Auto-generate a personalized schedule that fits to the user’s demands and specifications.</p>
-<p align="center">2. Push notifications for reminders about taking a break, starting the next task, hydrating, etc. (currently unimplemented) </p>
+<p align="center">2. Push notifications for reminders about taking a break, starting the next task, hydrating, etc. <i>(currently unimplemented)</i></p>
 
 <p align="center">
   <img width ="150" height="300" src="homepage.gif">
