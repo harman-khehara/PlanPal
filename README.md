@@ -2,7 +2,7 @@
 
 <p align="center">This personal care app is designed to manage work/study schedules efficiently using psychologically certified techniques.</p>
 
-<p align="center">The app features three modes of auto-generated schedules: Non-custom schedules with two types, Longer Periods and Shorter Periods, and a Custom Schedule. With the exception of the custom schedule, the non-custom schedules cannot be modified once they've been generated. The non-custom schedules have restricted timings for studying activities based on the research behind studying for shorter versus longer periods of time. </p>
+<p align="center">The app features three modes of auto-generated schedules: Non-custom schedules with two types, Longer Periods and Shorter Periods, and a Custom Schedule. The custom and non-custom schedules cannot be modified once they've been generated. The non-custom schedules have restricted timings for studying activities based on the research behind studying for shorter versus longer periods of time. </p>
 
 <p align="center">The main features of this app include:</p>
 <p align="center">1. Auto-generate a personalized schedule that fits to the user’s demands and specifications.</p>
