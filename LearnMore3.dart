@@ -39,7 +39,7 @@ class _LearnMore3State extends State<LearnMore3> {
                       ),
                     ),
                     Text(
-                      "✓ Input for bedtime and morning times",
+                      "✓ Input for bedtime and wake-up times",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 18,
@@ -48,7 +48,7 @@ class _LearnMore3State extends State<LearnMore3> {
                       ),
                     ),
                     Text(
-                      "✓ Blocking certain parts of the day/week for unavailability",
+                      "✓ Blocking certain parts of the day for unavailability",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 18,
@@ -57,7 +57,7 @@ class _LearnMore3State extends State<LearnMore3> {
                       ),
                     ),
                     Text(
-                      "✓ Input for personalized tasks with self-stated time requirements",
+                      "✓ Input for personalized tasks with self-stated hourly time requirements",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 18,
@@ -65,7 +65,7 @@ class _LearnMore3State extends State<LearnMore3> {
                         color: Colors.black,
                       ),
                     ),
-                    Text("✓ Modification of a generated schedule",
+                    Text("✓ Auto-generate a weekly schedule",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 18,

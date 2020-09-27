@@ -113,7 +113,7 @@ class _CreateSchedule3State extends State<CreateSchedule3> {
                                           children: [
                                             Text(
                                                 "STEP 1: Select the hours for when you go to sleep and wake up. This sets the min and max limits for the schedule. "
-                                                    "Keep in mind that the schedule will generate one after your wake up time and end one hour before your sleep time, with"
+                                                    "Keep in mind that the schedule will start one hour after your wake up time and end one hour before your sleep time, with"
                                                     "all times rounded to the nearest hour.",
                                                 textAlign: TextAlign.left,
                                                 style: TextStyle(fontSize: 18,

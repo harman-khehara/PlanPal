@@ -4,16 +4,13 @@
 
 <p align="center">The app features three modes of auto-generated schedules: Non-custom schedules with two types, Longer Periods and Shorter Periods, and a Custom Schedule. With the exception of the custom schedule, the non-custom schedules cannot be modified once they've been generated. The non-custom schedules have restricted timings for studying activities based on the research behind studying for shorter versus longer periods of time. </p>
 
-
 <p align="center">The main features of this app include:</p>
 <p align="center">1. Auto-generate a personalized schedule that fits to the user’s demands and specifications.</p>
-<p align="center">2. Push notifications for reminders about taking a break, starting the next task, hydrating, etc. <i>(currently not implemented)</i></p>
-    
+<p align="center">2. Push notifications for reminders about taking a break, starting the next task, hydrating, etc. </p>
+
 <p align="center">
-<img width ="150" height="300" src="homepage.gif">
+  <img width ="150" height="300" src="homepage.gif">
 </p>
-    
-  
 
 <h2 align="center">Table of Contents</h2>
 <p align="center"><a href="#features">Features & Functionality</a></p>
@@ -25,7 +22,7 @@
 <h2 align="center" id="features">Features & Functionality</h2>
 <dl>
   <dt>Short Study Schedule</dt>
-    <dd align="center">The short study schedule option allows you to study in multiple <b>1 hour</b> time intervals with <b>10 minute breaks</b>. The user input for this schedule consists of the tasks the user would like to work on for the day, the amount of time the user would like to spend per task, the times they are unavailable, a start time as well as a date for the schedule to be generated. The short study schedule option caters best to individuals who prefer to work for short periods of time.
+  <dd align="center">The short study schedule option allows you to study in multiple 1 hour time intervals with 10 minute breaks. The user input for this schedule consists of the tasks the user would like to work on for the day, the amount of time the user would like to spend per task, the times they are unavailable, a start time as well as a date for the schedule to be generated.
     <table>
       <tr>
         <th>
@@ -45,11 +42,27 @@
     
   </dd>
   <dt>Long Study Schedule</dt>
-  <dd align="center">
+  <dd align="center">The Long Study Schedule generates a schedule for the user that allows them to study in 3 hour blocks with a 30 minute break after each block. The user input for this schedule consists of the tasks the user would like to work on for the day, the amount of time the user would like to spend per task, the times they are unavailable, a start time as well as a date for the schedule to be generated.
   </dd>
   <dt>Custom Study Schedule</dt>
-  <dd align="center">
-  </dd>      
+  <dd align="center">The Custom Study Schedule generates a schedule for the user that allows the user to add in multiple 1 hour activities without pre-added breaks for an auto-generated weekly schedule. The user input for this schedule consists of wake up and bed times to set the day limit, unavailability times, task inputs with time expected to be spent on each task and specific days the task is to be added.
+  <table>
+        <tr>
+          <th>
+            <img width="200" height"500" src="ScheduleLimit.gif">
+          </th>
+          <th>
+            <img width="200" height"500" src="CustomUnavailability.gif">
+          </th>
+          <th>
+            <img width="200" height"500" src="CustomAddTasks.gif">
+          </th>
+          <th>
+            <img width="200" height"500" src="CustomSchedule.gif">
+          </th>
+        </tr>
+      </table>
+  </dd>
 </dl>
 
 
@@ -58,7 +71,7 @@
   <a href="https://flutter.dev/docs/get-started/install">Flutter</a> website for more information.</p>
 
 <ol>
-  <li>Open up Command Prompt on Windows or Terminal on macOS.</li>
+  <li>Open up Command Prompt.</li>
   <li>Use the <code>cd</code> command to change the directory to the location of the <code>.dart</code> files for this app.</li>
   <li>Use the <code>flutter pub get</code> command to get all dependencies for the app.</li>
   <li>Use the <code>flutter run</code> command.</li>
