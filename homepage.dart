@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
         key: _scaffoldKey,
         appBar: AppBar(
-          title: Text('Smart Schedule Creator', //App title
+          title: Text('PlanPal', //App title
               style: TextStyle(
                 fontFamily: 'Acme',
                 color: Colors.white,
@@ -94,9 +94,11 @@ class _HomePageState extends State<HomePage> {
                   color: Colors.white,
                   alignment: Alignment.topCenter,
                   child: SizedBox(
+
                       height: 100.0,
                       width: 380.0,
                       child: Container(
+
                           child: FloatingActionButton(
                               onPressed: _openDrawer,
                               child: RichText(
@@ -109,7 +111,7 @@ class _HomePageState extends State<HomePage> {
                                         text: 'Welcome ',
                                       ),
                                       TextSpan(
-                                        text: 'to Smart Schedule Creator! ',
+                                        text: 'PlanPal! ',
                                       ),
                                       TextSpan(
                                           text: 'Click here ',
@@ -122,6 +124,7 @@ class _HomePageState extends State<HomePage> {
                                     ]),
                                 textAlign: TextAlign.center,
                               ),
+                              elevation: 14.0,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(24.0),
                               ),
