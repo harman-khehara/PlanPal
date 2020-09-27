@@ -43,6 +43,22 @@
   </dd>
   <dt>Long Study Schedule</dt>
   <dd align="center">The Long Study Schedule generates a schedule for the user that allows them to study in 3 hour blocks with a 30 minute break after each block. The user input for this schedule consists of the tasks the user would like to work on for the day, the amount of time the user would like to spend per task, the times they are unavailable, a start time as well as a date for the schedule to be generated.
+  <table>
+        <tr>
+          <th>
+            <img width="200" height"500" src="LongTasks.jpg">
+          </th>
+          <th>
+            <img width="200" height"500" src="LongStartTime.jpg">
+          </th>
+          <th>
+            <img width="200" height"500" src="LongUnavailable.jpg">
+          </th>
+          <th>
+            <img width="200" height"500" src="LongSchedule.jpg">
+          </th>
+        </tr>
+      </table>
   </dd>
   <dt>Custom Study Schedule</dt>
   <dd align="center">The Custom Study Schedule generates a schedule for the user that allows the user to add in multiple 1 hour activities without pre-added breaks for an auto-generated weekly schedule. The user input for this schedule consists of wake up and bed times to set the day limit, unavailability times, task inputs with time expected to be spent on each task and specific days the task is to be added.
