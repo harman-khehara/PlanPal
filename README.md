@@ -1,4 +1,4 @@
-<h1 align="center">Smart Schedule Creator</h1>
+<h1 align="center">PlanPal</h1>
 
 <p align="center">This personal care app is designed to manage work/study schedules efficiently using psychologically certified techniques.</p>
 
