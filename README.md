@@ -4,7 +4,7 @@
 
 <p align="center">The app features three modes of auto-generated schedules: Non-custom schedules with two types, Longer Periods and Shorter Periods, and a Custom Schedule. The custom and non-custom schedules cannot be modified once they've been generated. The non-custom schedules have restricted timings for studying activities based on the research behind studying for shorter versus longer periods of time. </p>
 
-<p align="center">The main features of this app include:</p>
+<p align="center"><b>The main features of this app include:</b></p>
 <p align="center">1. Auto-generate a personalized schedule that fits to the user’s demands and specifications.</p>
 <p align="center">2. Push notifications for reminders about taking a break, starting the next task, hydrating, etc. <i>(currently unimplemented)</i></p>
 
@@ -87,7 +87,7 @@
   <a href="https://flutter.dev/docs/get-started/install">Flutter</a> website for more information.</p>
 
 <ol>
-  <li>Open up Command Prompt on Windows or Terminal on macOS/Linux.</li>
+  <li>Open up Command Prompt on Windows, or Terminal on macOS/Linux.</li>
   <li>Use the <code>cd</code> command to change the directory to the location of the <code>.dart</code> files for this app.</li>
   <li>Use the <code>flutter pub get</code> command to get all dependencies for the app.</li>
   <li>Use the <code>flutter run</code> command.</li>
