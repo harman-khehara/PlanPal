@@ -1,3 +1,7 @@
+<p align="center">
+  <img width="489" height="143" src="PlanPal_Logo.png">
+</p>
+
 <h1 align="center">PlanPal</h1>
 
 <p align="center">This personal care app is designed to manage work/study schedules efficiently using psychologically certified techniques.</p>
