@@ -16,15 +16,20 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  String messageTitle = "Empty";
-  String notificationAlert = "alert";
+  String messageTitle = "No new notifications";
+  String notificationAlert = "";
 
   FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
 
+  // Update the text objects inside the app when a notification is received
+  // The code in the initState method is referenced from the following website
+  // https://www.freecodecamp.org/news/how-to-add-push-notifications-to-flutter-app/
+  //Author: Krissanawat
   @override
   void initState() {
     super.initState();
 
+    // The onMessage function produces a notification inside the app while the user is using the app
     _firebaseMessaging.configure(
       onMessage: (message) async{
         setState(() {
@@ -33,10 +38,12 @@ class _HomePageState extends State<HomePage> {
         });
 
       },
+
+      // The onResume function opens the app when the push notification is clicked on from the device's notification bar
       onResume: (message) async{
         setState(() {
           messageTitle = message["data"]["title"];
-          notificationAlert = "Application opened from Notification";
+          notificationAlert = "New Notification Alert";
         });
 
       },
@@ -114,8 +121,42 @@ class _HomePageState extends State<HomePage> {
         body: ListView(
           scrollDirection: Axis.vertical,
           children: <Widget>[
-            Text(notificationAlert),
-            Text(messageTitle),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16.0, 25.0, 16.0, 16.0),
+              child: Container(
+                  color: Colors.redAccent[400],
+                  alignment: Alignment.topCenter,
+                  child: SizedBox(
+                      height: 30.0,
+                      width: 380.0,
+                      child: Container(
+                              child: Text("NOTIFICATION CENTER",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.white,
+                                    fontFamily: 'Acme',
+                                  )))),
+
+
+              )),
+
+            Text(notificationAlert,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.black,
+                  fontFamily: 'Karla',
+                )),
+
+            Text(messageTitle,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.black,
+                  fontFamily: 'Karla',
+                )),
+
             //The button which links to a full description of the app
             Padding(
               padding: const EdgeInsets.fromLTRB(16.0, 25.0, 16.0, 16.0),
