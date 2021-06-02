@@ -10,7 +10,7 @@
 
 <p align="center"><b>The main features of this app include:</b></p>
 <p align="center">1. Auto-generate a personalized schedule that fits to the user’s demands and specifications.</p>
-<p align="center">2. Push notifications for reminders about taking a break, starting the next task, hydrating, etc. <i>(currently unimplemented)</i></p>
+<p align="center">2. Push notifications for reminders about taking care of your personal health such as hydrating, taking a break, etc.</p>
 
 <p align="center">
   <img width ="150" height="300" src="homepage.gif">
@@ -83,13 +83,30 @@
         </tr>
       </table>
   </dd>
+  <dt>Push Notifications</dt>
+  <dd align="center">PlanPal offers scheduled push notifications and in-app notifications relating to personal health and wellness. Notifications reminding the user to take a hydration break are scheduled every 20-30 minutes to maintain the user's health while working through the tasks the user has scheduled for the day. These notifications can be viewed through the notification bar of the mobile device while the app is running in the background or, can be viewed directly on the homepage of the app if the user is currently using the app. The user also has the option to click directly on the push notification received through the mobile device which will take the user to the PlanPal app directly.
+    <table>
+      <tr>
+        <th>
+          <img width="245" height="475" src="no_notifications_image.png">
+        </th>
+        <th>
+          <img width="245" height="475" src="in_app_notification_image.png">
+        </th>
+        <th>
+          <img width="245" height="475" src="push_notification_image.png">
+        </th>
+        <th>
+          <img width="245" height="475" src="push_notification.gif">
+        </th>
+      </tr>
+    </table>
 </dl>
-
 
 <h2 align="center" id="installation">Installation Requirements</h2>
 <p align="center">Before you can run this app, ensure that you have the Flutter SDK and an emulator, such as the Android Emulator set up on your device. See the 
   <a href="https://flutter.dev/docs/get-started/install">Flutter</a> website for more information.</p>
-
+  
 <ol>
   <li>Open up Command Prompt on Windows, or Terminal on macOS/Linux.</li>
   <li>Use the <code>cd</code> command to change the directory to the location of the <code>.dart</code> files for this app.</li>
@@ -97,10 +114,18 @@
   <li>Use the <code>flutter run</code> command.</li>
   <li>Now the app will run on the emulator you have chosen.</li>
 </ol>
-  
+
+<p align="center">
+  <b>Note:</b>
+  In order to have a notification setup in your installation of PlanPal, you will need to create a <a href="https://firebase.google.com/">Firebase</a> account and register PlanPal as a new project in your Firebase console. This process will require you to enter an Android package name.
+</p>
+
+<p align="center">Android package name for PlanPal: <code>com.example.smart_schedule_creator</code></p>
+
+<p align="center">After registering PlanPal with Firebase, you will need to download the <code>google-services.json</code> file provided to you, and store it in the following directory: <code>./android/app</code>. The remaining configurations for Firebase notifications for PlanPal running on an Android device have already been completed.</p>
 
 <h2 align="center" id="framework">Technical Framework</h2>
-<p align ="center">This app was developed using the Android Studio IDE, Flutter SDK and Dart programming language.</p>
+<p align ="center">This app was developed using the Android Studio IDE, Firebase Cloud Messaging, Flutter SDK and Dart programming language.</p>
 
 
 <h2 align="center" id="contributors">Contributors</h2>
