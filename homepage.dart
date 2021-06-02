@@ -1,5 +1,6 @@
 //Homepage for the app
 
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_schedule_creator/LearnMore1.dart';
 import 'package:smart_schedule_creator/LearnMore2.dart';
@@ -15,6 +16,32 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  String messageTitle = "Empty";
+  String notificationAlert = "alert";
+
+  FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+
+  @override
+  void initState() {
+    super.initState();
+
+    _firebaseMessaging.configure(
+      onMessage: (message) async{
+        setState(() {
+          messageTitle = message["notification"]["title"];
+          notificationAlert = "New Notification Alert";
+        });
+
+      },
+      onResume: (message) async{
+        setState(() {
+          messageTitle = message["data"]["title"];
+          notificationAlert = "Application opened from Notification";
+        });
+
+      },
+    );
+  }
 
   //Opens the drawer
   void _openDrawer() {
@@ -87,6 +114,8 @@ class _HomePageState extends State<HomePage> {
         body: ListView(
           scrollDirection: Axis.vertical,
           children: <Widget>[
+            Text(notificationAlert),
+            Text(messageTitle),
             //The button which links to a full description of the app
             Padding(
               padding: const EdgeInsets.fromLTRB(16.0, 25.0, 16.0, 16.0),
