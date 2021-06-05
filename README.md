@@ -101,6 +101,7 @@
         </th>
       </tr>
     </table>
+  </dd>
 </dl>
 
 <h2 align="center" id="installation">Installation Requirements</h2>
